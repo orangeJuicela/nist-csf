@@ -1,0 +1,41 @@
+---
+import { functions, childrenOf, elementHref, href } from "../lib/catalog";
+
+interface Props {
+  currentId?: string;
+  expandAll?: boolean;
+}
+
+const { currentId, expandAll = false } = Astro.props;
+---
+
+<nav class="toc" id="site-toc" aria-label="目錄">
+  <p class="toc-label">目錄</p>
+  <a class="toc-home" href={href()}>總圖</a>
+  {
+    functions.map((fn) => {
+      const cats = childrenOf(fn.id);
+      const open = expandAll || currentId === fn.id || cats.some((cat) => cat.id === currentId);
+      return (
+        <details class="toc-fn" data-fn={fn.id} open={open}>
+          <summary>
+            <span class="swatch" aria-hidden="true" />
+            <a href={elementHref(fn)} aria-current={currentId === fn.id ? "page" : undefined}>
+              {fn.id} {fn.navLabelZhTW}
+            </a>
+          </summary>
+          <ul>
+            {cats.map((cat) => (
+              <li>
+                <a href={elementHref(cat)} aria-current={currentId === cat.id ? "page" : undefined}>
+                  <span class="toc-id">{cat.id}</span>
+                  <span>{cat.navLabelZhTW}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </details>
+      );
+    })
+  }
+</nav>

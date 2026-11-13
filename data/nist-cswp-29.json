@@ -1,0 +1,1399 @@
+{
+  "schemaVersion": "1.0",
+  "schema": "Catalog of NIST publications expressed as trees of elements. Each document is independent. CSF 2.0 uses elementType function, category, and subcategory. Other publications (for example SP 800-53, SP 800-61, SP 800-63, SP 800-207) can be added as further documents, with their own elementType values, or as relationship files keyed by element id. Informative references are intentionally not embedded; add them beside this file when needed.",
+  "sourceChecked": "2026-11-13",
+  "documents": [
+    {
+      "id": "NIST.CSWP.29",
+      "shortTitle": "CSF 2.0",
+      "title": "The NIST Cybersecurity Framework (CSF) 2.0",
+      "publisher": "National Institute of Standards and Technology",
+      "series": "NIST Cybersecurity White Paper",
+      "publicationId": "NIST CSWP 29",
+      "version": "2.0",
+      "published": "2024-02-26",
+      "doi": "https://doi.org/10.6028/NIST.CSWP.29",
+      "urls": {
+        "pdf": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
+        "pdfZhHant": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.chi.pdf",
+        "home": "https://www.nist.gov/cyberframework",
+        "cprt": "https://csrc.nist.gov/projects/cprt",
+        "referenceTool": "https://csrc.nist.gov/Projects/cybersecurity-framework/Filters#/csf/filters",
+        "faq": "https://www.nist.gov/cyberframework/faqs"
+      },
+      "publicDomain": {
+        "statement": "NIST publications created by NIST employees are works of the United States Government. They are not subject to copyright protection in the United States and are in the public domain there. NIST notes that its publications may be subject to copyright protection outside the United States. English outcome text on this site is reproduced from NIST CSWP 29.",
+        "credit": "Reprinted courtesy of the National Institute of Standards and Technology, U.S. Department of Commerce."
+      },
+      "localization": {
+        "explanationLocale": "zh-Hant-TW",
+        "explanationStatus": "unofficial",
+        "explanationNote": "navLabelZhTW and explanationZhTW are unofficial plain-language Traditional Chinese (Taiwan usage) written for this guide. They are not the NIST translation. The official Traditional Chinese translation is the PDF linked in urls.pdfZhHant."
+      },
+      "transcriptionNotes": [
+        "English name and outcome fields are taken from NIST CSWP 29 Appendix A.",
+        "RC.RP-06 is hyphenated across a line break in the PDF as 'incident-' / 'related'. This catalog joins that artifact as 'incident-related'. The same wording appears in the CSF 2.0 Reference Tool export.",
+        "Subcategory identifier gaps are intentional. Appendix A states that gaps indicate CSF 1.1 subcategories that were relocated in CSF 2.0. Withdrawn identifiers are not included as current elements."
+      ],
+      "presentation": {
+        "source": "NIST Cybersecurity Framework FAQ, CSF Six Functions Graphic hex codes",
+        "sourceUrl": "https://www.nist.gov/cyberframework/faqs",
+        "colors": {
+          "GV": "#f9f49d",
+          "ID": "#4bb2e0",
+          "PR": "#9292ea",
+          "DE": "#fab746",
+          "RS": "#f97367",
+          "RC": "#7df49f"
+        }
+      },
+      "counts": {
+        "function": 6,
+        "category": 22,
+        "subcategory": 106
+      },
+      "elements": [
+        {
+          "id": "GV",
+          "elementType": "function",
+          "parentId": null,
+          "name": "Govern",
+          "outcome": "The organization’s cybersecurity risk management strategy, expectations, and policy are established, communicated, and monitored",
+          "sort": 1,
+          "navLabelZhTW": "治理",
+          "explanationZhTW": "治理是先把資安風險要怎麼管、組織期待什麼、政策是什麼定下來，讓相關的人知道，並持續看著這些決定有沒有被執行。CSF 2.0 把治理放在其他功能的中央，因為角色、風險胃納、政策與監督會影響識別、保護、偵測、應變與復原的每一項決定。"
+        },
+        {
+          "id": "GV.OC",
+          "elementType": "category",
+          "parentId": "GV",
+          "name": "Organizational Context",
+          "outcome": "The circumstances — mission, stakeholder expectations, dependencies, and legal, regulatory, and contractual requirements — surrounding the organization’s cybersecurity risk management decisions are understood",
+          "sort": 2,
+          "navLabelZhTW": "組織情境",
+          "explanationZhTW": "做資安決策之前，先掌握組織的任務、利害關係人的期待、彼此的依賴，以及法令、監管與契約上的要求。這些是決策時的情境，不是附錄。"
+        },
+        {
+          "id": "GV.OC-01",
+          "elementType": "subcategory",
+          "parentId": "GV.OC",
+          "name": null,
+          "outcome": "The organizational mission is understood and informs cybersecurity risk management",
+          "sort": 3,
+          "navLabelZhTW": null,
+          "explanationZhTW": "組織的任務要被理解，並用來引導資安風險管理。資安在管什麼，要跟組織為什麼存在對得起來。"
+        },
+        {
+          "id": "GV.OC-02",
+          "elementType": "subcategory",
+          "parentId": "GV.OC",
+          "name": null,
+          "outcome": "Internal and external stakeholders are understood, and their needs and expectations regarding cybersecurity risk management are understood and considered",
+          "sort": 4,
+          "navLabelZhTW": null,
+          "explanationZhTW": "內部與外部利害關係人是誰，以及他們對資安風險管理的需求與期待，都要弄清楚並納入考量。"
+        },
+        {
+          "id": "GV.OC-03",
+          "elementType": "subcategory",
+          "parentId": "GV.OC",
+          "name": null,
+          "outcome": "Legal, regulatory, and contractual requirements regarding cybersecurity — including privacy and civil liberties obligations — are understood and managed",
+          "sort": 5,
+          "navLabelZhTW": null,
+          "explanationZhTW": "與資安有關的法令、監管與契約要求，包含隱私與公民自由方面的義務，都要被理解並加以管理。"
+        },
+        {
+          "id": "GV.OC-04",
+          "elementType": "subcategory",
+          "parentId": "GV.OC",
+          "name": null,
+          "outcome": "Critical objectives, capabilities, and services that external stakeholders depend on or expect from the organization are understood and communicated",
+          "sort": 6,
+          "navLabelZhTW": null,
+          "explanationZhTW": "外部利害關係人依賴或期待組織提供的關鍵目標、能力與服務，要被理解，並向他們說明。"
+        },
+        {
+          "id": "GV.OC-05",
+          "elementType": "subcategory",
+          "parentId": "GV.OC",
+          "name": null,
+          "outcome": "Outcomes, capabilities, and services that the organization depends on are understood and communicated",
+          "sort": 7,
+          "navLabelZhTW": null,
+          "explanationZhTW": "組織自己所依賴的成果、能力與服務，要被理解，並向相關的人說明。"
+        },
+        {
+          "id": "GV.RM",
+          "elementType": "category",
+          "parentId": "GV",
+          "name": "Risk Management Strategy",
+          "outcome": "The organization’s priorities, constraints, risk tolerance and appetite statements, and assumptions are established, communicated, and used to support operational risk decisions",
+          "sort": 8,
+          "navLabelZhTW": "風險管理策略",
+          "explanationZhTW": "把優先順序、限制條件、風險胃納與風險容忍度，以及背後的假設定下來、講清楚，並用來支持日常的風險決定。"
+        },
+        {
+          "id": "GV.RM-01",
+          "elementType": "subcategory",
+          "parentId": "GV.RM",
+          "name": null,
+          "outcome": "Risk management objectives are established and agreed to by organizational stakeholders",
+          "sort": 9,
+          "navLabelZhTW": null,
+          "explanationZhTW": "風險管理目標要訂出來，並取得組織利害關係人的同意。"
+        },
+        {
+          "id": "GV.RM-02",
+          "elementType": "subcategory",
+          "parentId": "GV.RM",
+          "name": null,
+          "outcome": "Risk appetite and risk tolerance statements are established, communicated, and maintained",
+          "sort": 10,
+          "navLabelZhTW": null,
+          "explanationZhTW": "風險胃納與風險容忍度要寫成聲明、傳達出去，並持續維護。"
+        },
+        {
+          "id": "GV.RM-03",
+          "elementType": "subcategory",
+          "parentId": "GV.RM",
+          "name": null,
+          "outcome": "Cybersecurity risk management activities and outcomes are included in enterprise risk management processes",
+          "sort": 11,
+          "navLabelZhTW": null,
+          "explanationZhTW": "資安風險管理的活動與成果要納入企業風險管理流程。"
+        },
+        {
+          "id": "GV.RM-04",
+          "elementType": "subcategory",
+          "parentId": "GV.RM",
+          "name": null,
+          "outcome": "Strategic direction that describes appropriate risk response options is established and communicated",
+          "sort": 12,
+          "navLabelZhTW": null,
+          "explanationZhTW": "要建立並傳達策略方向，說明哪些風險回應選項是適當的。"
+        },
+        {
+          "id": "GV.RM-05",
+          "elementType": "subcategory",
+          "parentId": "GV.RM",
+          "name": null,
+          "outcome": "Lines of communication across the organization are established for cybersecurity risks, including risks from suppliers and other third parties",
+          "sort": 13,
+          "navLabelZhTW": null,
+          "explanationZhTW": "組織裡要建立資安風險的溝通管道，包含來自供應商與其他第三方的風險。"
+        },
+        {
+          "id": "GV.RM-06",
+          "elementType": "subcategory",
+          "parentId": "GV.RM",
+          "name": null,
+          "outcome": "A standardized method for calculating, documenting, categorizing, and prioritizing cybersecurity risks is established and communicated",
+          "sort": 14,
+          "navLabelZhTW": null,
+          "explanationZhTW": "要建立並傳達一套一致的方法，用來計算、記錄、分類與排定資安風險的優先順序。"
+        },
+        {
+          "id": "GV.RM-07",
+          "elementType": "subcategory",
+          "parentId": "GV.RM",
+          "name": null,
+          "outcome": "Strategic opportunities (i.e., positive risks) are characterized and are included in organizational cybersecurity risk discussions",
+          "sort": 15,
+          "navLabelZhTW": null,
+          "explanationZhTW": "策略機會（也就是正向風險）要被描述，並納入組織的資安風險討論。"
+        },
+        {
+          "id": "GV.RR",
+          "elementType": "category",
+          "parentId": "GV",
+          "name": "Roles, Responsibilities, and Authorities",
+          "outcome": "Cybersecurity roles, responsibilities, and authorities to foster accountability, performance assessment, and continuous improvement are established and communicated",
+          "sort": 16,
+          "navLabelZhTW": "角色、責任與權限",
+          "explanationZhTW": "把資安的角色、責任與權限定下來並讓人知道，這樣才能究責、看表現，也才能持續改善。"
+        },
+        {
+          "id": "GV.RR-01",
+          "elementType": "subcategory",
+          "parentId": "GV.RR",
+          "name": null,
+          "outcome": "Organizational leadership is responsible and accountable for cybersecurity risk and fosters a culture that is risk-aware, ethical, and continually improving",
+          "sort": 17,
+          "navLabelZhTW": null,
+          "explanationZhTW": "組織領導層對資安風險負責並可被究責，同時培養有風險意識、合乎倫理且持續改善的文化。"
+        },
+        {
+          "id": "GV.RR-02",
+          "elementType": "subcategory",
+          "parentId": "GV.RR",
+          "name": null,
+          "outcome": "Roles, responsibilities, and authorities related to cybersecurity risk management are established, communicated, understood, and enforced",
+          "sort": 18,
+          "navLabelZhTW": null,
+          "explanationZhTW": "與資安風險管理有關的角色、責任與權限要訂定、傳達、讓人理解，並且確實執行。"
+        },
+        {
+          "id": "GV.RR-03",
+          "elementType": "subcategory",
+          "parentId": "GV.RR",
+          "name": null,
+          "outcome": "Adequate resources are allocated commensurate with the cybersecurity risk strategy, roles, responsibilities, and policies",
+          "sort": 19,
+          "navLabelZhTW": null,
+          "explanationZhTW": "配置的資源要與資安風險策略、角色、責任及政策相稱。"
+        },
+        {
+          "id": "GV.RR-04",
+          "elementType": "subcategory",
+          "parentId": "GV.RR",
+          "name": null,
+          "outcome": "Cybersecurity is included in human resources practices",
+          "sort": 20,
+          "navLabelZhTW": null,
+          "explanationZhTW": "資安要被納入人力資源的做法。"
+        },
+        {
+          "id": "GV.PO",
+          "elementType": "category",
+          "parentId": "GV",
+          "name": "Policy",
+          "outcome": "Organizational cybersecurity policy is established, communicated, and enforced",
+          "sort": 21,
+          "navLabelZhTW": "政策",
+          "explanationZhTW": "訂出組織的資安政策，傳達給該知道的人，並且確實執行。"
+        },
+        {
+          "id": "GV.PO-01",
+          "elementType": "subcategory",
+          "parentId": "GV.PO",
+          "name": null,
+          "outcome": "Policy for managing cybersecurity risks is established based on organizational context, cybersecurity strategy, and priorities and is communicated and enforced",
+          "sort": 22,
+          "navLabelZhTW": null,
+          "explanationZhTW": "管理資安風險的政策要依組織情境、資安策略與優先順序來訂定，並加以傳達與執行。"
+        },
+        {
+          "id": "GV.PO-02",
+          "elementType": "subcategory",
+          "parentId": "GV.PO",
+          "name": null,
+          "outcome": "Policy for managing cybersecurity risks is reviewed, updated, communicated, and enforced to reflect changes in requirements, threats, technology, and organizational mission",
+          "sort": 23,
+          "navLabelZhTW": null,
+          "explanationZhTW": "資安風險政策要檢討並更新，以反映要求、威脅、技術與組織任務的變化，並重新傳達與執行。"
+        },
+        {
+          "id": "GV.OV",
+          "elementType": "category",
+          "parentId": "GV",
+          "name": "Oversight",
+          "outcome": "Results of organization-wide cybersecurity risk management activities and performance are used to inform, improve, and adjust the risk management strategy",
+          "sort": 24,
+          "navLabelZhTW": "監督",
+          "explanationZhTW": "用全組織資安風險管理做下來的結果與表現，回頭通知、改善並調整風險管理策略。"
+        },
+        {
+          "id": "GV.OV-01",
+          "elementType": "subcategory",
+          "parentId": "GV.OV",
+          "name": null,
+          "outcome": "Cybersecurity risk management strategy outcomes are reviewed to inform and adjust strategy and direction",
+          "sort": 25,
+          "navLabelZhTW": null,
+          "explanationZhTW": "檢視資安風險管理策略的成果，用來告知並調整策略與方向。"
+        },
+        {
+          "id": "GV.OV-02",
+          "elementType": "subcategory",
+          "parentId": "GV.OV",
+          "name": null,
+          "outcome": "The cybersecurity risk management strategy is reviewed and adjusted to ensure coverage of organizational requirements and risks",
+          "sort": 26,
+          "navLabelZhTW": null,
+          "explanationZhTW": "檢討並調整資安風險管理策略，確認它涵蓋組織的要求與風險。"
+        },
+        {
+          "id": "GV.OV-03",
+          "elementType": "subcategory",
+          "parentId": "GV.OV",
+          "name": null,
+          "outcome": "Organizational cybersecurity risk management performance is evaluated and reviewed for adjustments needed",
+          "sort": 27,
+          "navLabelZhTW": null,
+          "explanationZhTW": "評估並檢視組織資安風險管理的表現，看哪些地方需要調整。"
+        },
+        {
+          "id": "GV.SC",
+          "elementType": "category",
+          "parentId": "GV",
+          "name": "Cybersecurity Supply Chain Risk Management",
+          "outcome": "Cyber supply chain risk management processes are identified, established, managed, monitored, and improved by organizational stakeholders",
+          "sort": 28,
+          "navLabelZhTW": "資安供應鏈風險管理",
+          "explanationZhTW": "由組織的利害關係人辨識、建立、管理、監控並改進資安供應鏈風險管理的做法。"
+        },
+        {
+          "id": "GV.SC-01",
+          "elementType": "subcategory",
+          "parentId": "GV.SC",
+          "name": null,
+          "outcome": "A cybersecurity supply chain risk management program, strategy, objectives, policies, and processes are established and agreed to by organizational stakeholders",
+          "sort": 29,
+          "navLabelZhTW": null,
+          "explanationZhTW": "資安供應鏈風險管理的計畫、策略、目標、政策與流程要建立，並取得組織利害關係人同意。"
+        },
+        {
+          "id": "GV.SC-02",
+          "elementType": "subcategory",
+          "parentId": "GV.SC",
+          "name": null,
+          "outcome": "Cybersecurity roles and responsibilities for suppliers, customers, and partners are established, communicated, and coordinated internally and externally",
+          "sort": 30,
+          "navLabelZhTW": null,
+          "explanationZhTW": "供應商、客戶與夥伴在資安上的角色與責任要訂定、傳達，並在組織內外協調。"
+        },
+        {
+          "id": "GV.SC-03",
+          "elementType": "subcategory",
+          "parentId": "GV.SC",
+          "name": null,
+          "outcome": "Cybersecurity supply chain risk management is integrated into cybersecurity and enterprise risk management, risk assessment, and improvement processes",
+          "sort": 31,
+          "navLabelZhTW": null,
+          "explanationZhTW": "資安供應鏈風險管理要整合進資安與企業風險管理、風險評估與改善流程。"
+        },
+        {
+          "id": "GV.SC-04",
+          "elementType": "subcategory",
+          "parentId": "GV.SC",
+          "name": null,
+          "outcome": "Suppliers are known and prioritized by criticality",
+          "sort": 32,
+          "navLabelZhTW": null,
+          "explanationZhTW": "供應商要被掌握，並依關鍵程度排定優先順序。"
+        },
+        {
+          "id": "GV.SC-05",
+          "elementType": "subcategory",
+          "parentId": "GV.SC",
+          "name": null,
+          "outcome": "Requirements to address cybersecurity risks in supply chains are established, prioritized, and integrated into contracts and other types of agreements with suppliers and other relevant third parties",
+          "sort": 33,
+          "navLabelZhTW": null,
+          "explanationZhTW": "處理供應鏈資安風險的要求要訂出、排定優先順序，並寫進與供應商及其他相關第三方的契約或其他協議。"
+        },
+        {
+          "id": "GV.SC-06",
+          "elementType": "subcategory",
+          "parentId": "GV.SC",
+          "name": null,
+          "outcome": "Planning and due diligence are performed to reduce risks before entering into formal supplier or other third-party relationships",
+          "sort": 34,
+          "navLabelZhTW": null,
+          "explanationZhTW": "在正式建立供應商或其他第三方關係之前，先做規劃與盡職調查，以降低風險。"
+        },
+        {
+          "id": "GV.SC-07",
+          "elementType": "subcategory",
+          "parentId": "GV.SC",
+          "name": null,
+          "outcome": "The risks posed by a supplier, their products and services, and other third parties are understood, recorded, prioritized, assessed, responded to, and monitored over the course of the relationship",
+          "sort": 35,
+          "navLabelZhTW": null,
+          "explanationZhTW": "供應商、其產品與服務，以及其他第三方帶來的風險，要在關係存續期間被理解、記錄、排定優先順序、評估、回應並持續監控。"
+        },
+        {
+          "id": "GV.SC-08",
+          "elementType": "subcategory",
+          "parentId": "GV.SC",
+          "name": null,
+          "outcome": "Relevant suppliers and other third parties are included in incident planning, response, and recovery activities",
+          "sort": 36,
+          "navLabelZhTW": null,
+          "explanationZhTW": "相關供應商與其他第三方要被納入資安事件的規劃、應變與復原活動。"
+        },
+        {
+          "id": "GV.SC-09",
+          "elementType": "subcategory",
+          "parentId": "GV.SC",
+          "name": null,
+          "outcome": "Supply chain security practices are integrated into cybersecurity and enterprise risk management programs, and their performance is monitored throughout the technology product and service life cycle",
+          "sort": 37,
+          "navLabelZhTW": null,
+          "explanationZhTW": "供應鏈安全做法要整合進資安與企業風險管理計畫，並在技術產品與服務的生命週期中監控其表現。"
+        },
+        {
+          "id": "GV.SC-10",
+          "elementType": "subcategory",
+          "parentId": "GV.SC",
+          "name": null,
+          "outcome": "Cybersecurity supply chain risk management plans include provisions for activities that occur after the conclusion of a partnership or service agreement",
+          "sort": 38,
+          "navLabelZhTW": null,
+          "explanationZhTW": "資安供應鏈風險管理計畫要包含夥伴關係或服務協議結束之後仍須進行的活動。"
+        },
+        {
+          "id": "ID",
+          "elementType": "function",
+          "parentId": null,
+          "name": "Identify",
+          "outcome": "The organization’s current cybersecurity risks are understood",
+          "sort": 39,
+          "navLabelZhTW": "識別",
+          "explanationZhTW": "識別是把組織目前的資安風險看清楚：有哪些資產、風險從哪裡來、哪些做法該改。看清楚之後，後面的保護與資源才放得準。"
+        },
+        {
+          "id": "ID.AM",
+          "elementType": "category",
+          "parentId": "ID",
+          "name": "Asset Management",
+          "outcome": "Assets (e.g., data, hardware, software, systems, facilities, services, people) that enable the organization to achieve business purposes are identified and managed consistent with their relative importance to organizational objectives and the organization’s risk strategy",
+          "sort": 40,
+          "navLabelZhTW": "資產管理",
+          "explanationZhTW": "把讓組織達成業務目的的資產找出來並管理。資產包含資料、硬體、軟體、系統、設施、服務與人員，管理方式要對齊它們對組織目標與風險策略的相對重要性。"
+        },
+        {
+          "id": "ID.AM-01",
+          "elementType": "subcategory",
+          "parentId": "ID.AM",
+          "name": null,
+          "outcome": "Inventories of hardware managed by the organization are maintained",
+          "sort": 41,
+          "navLabelZhTW": null,
+          "explanationZhTW": "組織所管理的硬體要有清冊，並持續維護。"
+        },
+        {
+          "id": "ID.AM-02",
+          "elementType": "subcategory",
+          "parentId": "ID.AM",
+          "name": null,
+          "outcome": "Inventories of software, services, and systems managed by the organization are maintained",
+          "sort": 42,
+          "navLabelZhTW": null,
+          "explanationZhTW": "組織所管理的軟體、服務與系統要有清冊，並持續維護。"
+        },
+        {
+          "id": "ID.AM-03",
+          "elementType": "subcategory",
+          "parentId": "ID.AM",
+          "name": null,
+          "outcome": "Representations of the organization’s authorized network communication and internal and external network data flows are maintained",
+          "sort": 43,
+          "navLabelZhTW": null,
+          "explanationZhTW": "要維護組織所授權的網路通訊，以及內部與外部網路資料流向的表示。"
+        },
+        {
+          "id": "ID.AM-04",
+          "elementType": "subcategory",
+          "parentId": "ID.AM",
+          "name": null,
+          "outcome": "Inventories of services provided by suppliers are maintained",
+          "sort": 44,
+          "navLabelZhTW": null,
+          "explanationZhTW": "供應商所提供的服務要有清冊，並持續維護。"
+        },
+        {
+          "id": "ID.AM-05",
+          "elementType": "subcategory",
+          "parentId": "ID.AM",
+          "name": null,
+          "outcome": "Assets are prioritized based on classification, criticality, resources, and impact on the mission",
+          "sort": 45,
+          "navLabelZhTW": null,
+          "explanationZhTW": "資產要依分類、關鍵程度、資源，以及對任務的影響來排定優先順序。"
+        },
+        {
+          "id": "ID.AM-07",
+          "elementType": "subcategory",
+          "parentId": "ID.AM",
+          "name": null,
+          "outcome": "Inventories of data and corresponding metadata for designated data types are maintained",
+          "sort": 46,
+          "navLabelZhTW": null,
+          "explanationZhTW": "指定資料類型的資料清冊，以及對應的詮釋資料，要持續維護。"
+        },
+        {
+          "id": "ID.AM-08",
+          "elementType": "subcategory",
+          "parentId": "ID.AM",
+          "name": null,
+          "outcome": "Systems, hardware, software, services, and data are managed throughout their life cycles",
+          "sort": 47,
+          "navLabelZhTW": null,
+          "explanationZhTW": "系統、硬體、軟體、服務與資料要在整個生命週期中被管理。"
+        },
+        {
+          "id": "ID.RA",
+          "elementType": "category",
+          "parentId": "ID",
+          "name": "Risk Assessment",
+          "outcome": "The cybersecurity risk to the organization, assets, and individuals is understood by the organization",
+          "sort": 48,
+          "navLabelZhTW": "風險評估",
+          "explanationZhTW": "組織要理解資安風險對組織本身、資產與個人的意義，而不是只收集一份弱點清單。"
+        },
+        {
+          "id": "ID.RA-01",
+          "elementType": "subcategory",
+          "parentId": "ID.RA",
+          "name": null,
+          "outcome": "Vulnerabilities in assets are identified, validated, and recorded",
+          "sort": 49,
+          "navLabelZhTW": null,
+          "explanationZhTW": "資產上的弱點要被找出、確認並記錄。"
+        },
+        {
+          "id": "ID.RA-02",
+          "elementType": "subcategory",
+          "parentId": "ID.RA",
+          "name": null,
+          "outcome": "Cyber threat intelligence is received from information sharing forums and sources",
+          "sort": 50,
+          "navLabelZhTW": null,
+          "explanationZhTW": "要從情資分享管道與其他來源接收網路威脅情資。"
+        },
+        {
+          "id": "ID.RA-03",
+          "elementType": "subcategory",
+          "parentId": "ID.RA",
+          "name": null,
+          "outcome": "Internal and external threats to the organization are identified and recorded",
+          "sort": 51,
+          "navLabelZhTW": null,
+          "explanationZhTW": "對組織的內部與外部威脅要被辨識並記錄。"
+        },
+        {
+          "id": "ID.RA-04",
+          "elementType": "subcategory",
+          "parentId": "ID.RA",
+          "name": null,
+          "outcome": "Potential impacts and likelihoods of threats exploiting vulnerabilities are identified and recorded",
+          "sort": 52,
+          "navLabelZhTW": null,
+          "explanationZhTW": "威脅利用弱點時可能造成的影響與可能性，要被辨識並記錄。"
+        },
+        {
+          "id": "ID.RA-05",
+          "elementType": "subcategory",
+          "parentId": "ID.RA",
+          "name": null,
+          "outcome": "Threats, vulnerabilities, likelihoods, and impacts are used to understand inherent risk and inform risk response prioritization",
+          "sort": 53,
+          "navLabelZhTW": null,
+          "explanationZhTW": "用威脅、弱點、可能性與影響來理解固有風險，並據此排定風險回應的優先順序。"
+        },
+        {
+          "id": "ID.RA-06",
+          "elementType": "subcategory",
+          "parentId": "ID.RA",
+          "name": null,
+          "outcome": "Risk responses are chosen, prioritized, planned, tracked, and communicated",
+          "sort": 54,
+          "navLabelZhTW": null,
+          "explanationZhTW": "風險回應要被選定、排定優先順序、規劃、追蹤並傳達。"
+        },
+        {
+          "id": "ID.RA-07",
+          "elementType": "subcategory",
+          "parentId": "ID.RA",
+          "name": null,
+          "outcome": "Changes and exceptions are managed, assessed for risk impact, recorded, and tracked",
+          "sort": 55,
+          "navLabelZhTW": null,
+          "explanationZhTW": "變更與例外要被管理、評估其風險影響、記錄並追蹤。"
+        },
+        {
+          "id": "ID.RA-08",
+          "elementType": "subcategory",
+          "parentId": "ID.RA",
+          "name": null,
+          "outcome": "Processes for receiving, analyzing, and responding to vulnerability disclosures are established",
+          "sort": 56,
+          "navLabelZhTW": null,
+          "explanationZhTW": "要建立接收、分析與回應弱點揭露的流程。"
+        },
+        {
+          "id": "ID.RA-09",
+          "elementType": "subcategory",
+          "parentId": "ID.RA",
+          "name": null,
+          "outcome": "The authenticity and integrity of hardware and software are assessed prior to acquisition and use",
+          "sort": 57,
+          "navLabelZhTW": null,
+          "explanationZhTW": "硬體與軟體在取得與使用之前，要評估其真實性與完整性。"
+        },
+        {
+          "id": "ID.RA-10",
+          "elementType": "subcategory",
+          "parentId": "ID.RA",
+          "name": null,
+          "outcome": "Critical suppliers are assessed prior to acquisition",
+          "sort": 58,
+          "navLabelZhTW": null,
+          "explanationZhTW": "關鍵供應商在採購之前要先被評估。"
+        },
+        {
+          "id": "ID.IM",
+          "elementType": "category",
+          "parentId": "ID",
+          "name": "Improvement",
+          "outcome": "Improvements to organizational cybersecurity risk management processes, procedures and activities are identified across all CSF Functions",
+          "sort": 59,
+          "navLabelZhTW": "改善",
+          "explanationZhTW": "在所有 CSF 功能裡，找出資安風險管理的流程、程序與活動可以改進的地方。"
+        },
+        {
+          "id": "ID.IM-01",
+          "elementType": "subcategory",
+          "parentId": "ID.IM",
+          "name": null,
+          "outcome": "Improvements are identified from evaluations",
+          "sort": 60,
+          "navLabelZhTW": null,
+          "explanationZhTW": "從評鑑中找出可改善之處。"
+        },
+        {
+          "id": "ID.IM-02",
+          "elementType": "subcategory",
+          "parentId": "ID.IM",
+          "name": null,
+          "outcome": "Improvements are identified from security tests and exercises, including those done in coordination with suppliers and relevant third parties",
+          "sort": 61,
+          "navLabelZhTW": null,
+          "explanationZhTW": "從安全測試與演練找出可改善之處，包含與供應商及相關第三方一起進行的測試與演練。"
+        },
+        {
+          "id": "ID.IM-03",
+          "elementType": "subcategory",
+          "parentId": "ID.IM",
+          "name": null,
+          "outcome": "Improvements are identified from execution of operational processes, procedures, and activities",
+          "sort": 62,
+          "navLabelZhTW": null,
+          "explanationZhTW": "從日常流程、程序與活動的執行中找出可改善之處。"
+        },
+        {
+          "id": "ID.IM-04",
+          "elementType": "subcategory",
+          "parentId": "ID.IM",
+          "name": null,
+          "outcome": "Incident response plans and other cybersecurity plans that affect operations are established, communicated, maintained, and improved",
+          "sort": 63,
+          "navLabelZhTW": null,
+          "explanationZhTW": "資安事件應變計畫，以及其他會影響營運的資安計畫，要建立、傳達、維護並改進。"
+        },
+        {
+          "id": "PR",
+          "elementType": "function",
+          "parentId": null,
+          "name": "Protect",
+          "outcome": "Safeguards to manage the organization’s cybersecurity risks are used",
+          "sort": 64,
+          "navLabelZhTW": "保護",
+          "explanationZhTW": "保護是實際使用防護措施來管理資安風險，範圍涵蓋身分與存取控制、人員的意識與訓練、資料、平台，以及技術基礎設施的韌性。重點是這些防護有被用上。"
+        },
+        {
+          "id": "PR.AA",
+          "elementType": "category",
+          "parentId": "PR",
+          "name": "Identity Management, Authentication, and Access Control",
+          "outcome": "Access to physical and logical assets is limited to authorized users, services, and hardware and managed commensurate with the assessed risk of unauthorized access",
+          "sort": 65,
+          "navLabelZhTW": "身分、鑑別與存取控制",
+          "explanationZhTW": "實體與邏輯資產只讓經過授權的使用者、服務與硬體存取，並依未授權存取的風險來管理這件事。"
+        },
+        {
+          "id": "PR.AA-01",
+          "elementType": "subcategory",
+          "parentId": "PR.AA",
+          "name": null,
+          "outcome": "Identities and credentials for authorized users, services, and hardware are managed by the organization",
+          "sort": 66,
+          "navLabelZhTW": null,
+          "explanationZhTW": "經授權的使用者、服務與硬體，其身分與憑證要由組織管理。"
+        },
+        {
+          "id": "PR.AA-02",
+          "elementType": "subcategory",
+          "parentId": "PR.AA",
+          "name": null,
+          "outcome": "Identities are proofed and bound to credentials based on the context of interactions",
+          "sort": 67,
+          "navLabelZhTW": null,
+          "explanationZhTW": "依互動的情境查核身分，並把身分與憑證綁在一起。"
+        },
+        {
+          "id": "PR.AA-03",
+          "elementType": "subcategory",
+          "parentId": "PR.AA",
+          "name": null,
+          "outcome": "Users, services, and hardware are authenticated",
+          "sort": 68,
+          "navLabelZhTW": null,
+          "explanationZhTW": "使用者、服務與硬體都要經過鑑別。"
+        },
+        {
+          "id": "PR.AA-04",
+          "elementType": "subcategory",
+          "parentId": "PR.AA",
+          "name": null,
+          "outcome": "Identity assertions are protected, conveyed, and verified",
+          "sort": 69,
+          "navLabelZhTW": null,
+          "explanationZhTW": "身分主張要被保護、傳遞並驗證。"
+        },
+        {
+          "id": "PR.AA-05",
+          "elementType": "subcategory",
+          "parentId": "PR.AA",
+          "name": null,
+          "outcome": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "sort": 70,
+          "navLabelZhTW": null,
+          "explanationZhTW": "存取權限、被賦予的資格與授權要寫進政策，加以管理、執行與檢視，並納入最小權限與職務區隔。"
+        },
+        {
+          "id": "PR.AA-06",
+          "elementType": "subcategory",
+          "parentId": "PR.AA",
+          "name": null,
+          "outcome": "Physical access to assets is managed, monitored, and enforced commensurate with risk",
+          "sort": 71,
+          "navLabelZhTW": null,
+          "explanationZhTW": "對資產的實體存取要依風險加以管理、監控與執行。"
+        },
+        {
+          "id": "PR.AT",
+          "elementType": "category",
+          "parentId": "PR",
+          "name": "Awareness and Training",
+          "outcome": "The organization’s personnel are provided with cybersecurity awareness and training so that they can perform their cybersecurity-related tasks",
+          "sort": 72,
+          "navLabelZhTW": "意識與訓練",
+          "explanationZhTW": "讓組織人員得到資安意識與訓練，使他們做得到與資安有關的工作。"
+        },
+        {
+          "id": "PR.AT-01",
+          "elementType": "subcategory",
+          "parentId": "PR.AT",
+          "name": null,
+          "outcome": "Personnel are provided with awareness and training so that they possess the knowledge and skills to perform general tasks with cybersecurity risks in mind",
+          "sort": 73,
+          "navLabelZhTW": null,
+          "explanationZhTW": "提供人員意識與訓練，使他們具備知識與技能，在做一般工作時把資安風險納入考量。"
+        },
+        {
+          "id": "PR.AT-02",
+          "elementType": "subcategory",
+          "parentId": "PR.AT",
+          "name": null,
+          "outcome": "Individuals in specialized roles are provided with awareness and training so that they possess the knowledge and skills to perform relevant tasks with cybersecurity risks in mind",
+          "sort": 74,
+          "navLabelZhTW": null,
+          "explanationZhTW": "對擔任專門角色的人提供意識與訓練，使他們具備知識與技能，在做相關工作時把資安風險納入考量。"
+        },
+        {
+          "id": "PR.DS",
+          "elementType": "category",
+          "parentId": "PR",
+          "name": "Data Security",
+          "outcome": "Data are managed consistent with the organization’s risk strategy to protect the confidentiality, integrity, and availability of information",
+          "sort": 75,
+          "navLabelZhTW": "資料安全",
+          "explanationZhTW": "依組織的風險策略管理資料，以保護資訊的機密性、完整性與可用性。"
+        },
+        {
+          "id": "PR.DS-01",
+          "elementType": "subcategory",
+          "parentId": "PR.DS",
+          "name": null,
+          "outcome": "The confidentiality, integrity, and availability of data-at-rest are protected",
+          "sort": 76,
+          "navLabelZhTW": null,
+          "explanationZhTW": "保護靜態資料的機密性、完整性與可用性。"
+        },
+        {
+          "id": "PR.DS-02",
+          "elementType": "subcategory",
+          "parentId": "PR.DS",
+          "name": null,
+          "outcome": "The confidentiality, integrity, and availability of data-in-transit are protected",
+          "sort": 77,
+          "navLabelZhTW": null,
+          "explanationZhTW": "保護傳輸中資料的機密性、完整性與可用性。"
+        },
+        {
+          "id": "PR.DS-10",
+          "elementType": "subcategory",
+          "parentId": "PR.DS",
+          "name": null,
+          "outcome": "The confidentiality, integrity, and availability of data-in-use are protected",
+          "sort": 78,
+          "navLabelZhTW": null,
+          "explanationZhTW": "保護使用中資料的機密性、完整性與可用性。"
+        },
+        {
+          "id": "PR.DS-11",
+          "elementType": "subcategory",
+          "parentId": "PR.DS",
+          "name": null,
+          "outcome": "Backups of data are created, protected, maintained, and tested",
+          "sort": 79,
+          "navLabelZhTW": null,
+          "explanationZhTW": "建立資料備份，並加以保護、維護與測試。"
+        },
+        {
+          "id": "PR.PS",
+          "elementType": "category",
+          "parentId": "PR",
+          "name": "Platform Security",
+          "outcome": "The hardware, software (e.g., firmware, operating systems, applications), and services of physical and virtual platforms are managed consistent with the organization’s risk strategy to protect their confidentiality, integrity, and availability",
+          "sort": 80,
+          "navLabelZhTW": "平台安全",
+          "explanationZhTW": "依組織的風險策略管理實體與虛擬平台上的硬體、軟體（包含韌體、作業系統、應用程式）與服務，以保護它們的機密性、完整性與可用性。"
+        },
+        {
+          "id": "PR.PS-01",
+          "elementType": "subcategory",
+          "parentId": "PR.PS",
+          "name": null,
+          "outcome": "Configuration management practices are established and applied",
+          "sort": 81,
+          "navLabelZhTW": null,
+          "explanationZhTW": "建立並落實組態管理做法。"
+        },
+        {
+          "id": "PR.PS-02",
+          "elementType": "subcategory",
+          "parentId": "PR.PS",
+          "name": null,
+          "outcome": "Software is maintained, replaced, and removed commensurate with risk",
+          "sort": 82,
+          "navLabelZhTW": null,
+          "explanationZhTW": "依風險維護、更換與移除軟體。"
+        },
+        {
+          "id": "PR.PS-03",
+          "elementType": "subcategory",
+          "parentId": "PR.PS",
+          "name": null,
+          "outcome": "Hardware is maintained, replaced, and removed commensurate with risk",
+          "sort": 83,
+          "navLabelZhTW": null,
+          "explanationZhTW": "依風險維護、更換與移除硬體。"
+        },
+        {
+          "id": "PR.PS-04",
+          "elementType": "subcategory",
+          "parentId": "PR.PS",
+          "name": null,
+          "outcome": "Log records are generated and made available for continuous monitoring",
+          "sort": 84,
+          "navLabelZhTW": null,
+          "explanationZhTW": "產生日誌紀錄，並提供給持續監控使用。"
+        },
+        {
+          "id": "PR.PS-05",
+          "elementType": "subcategory",
+          "parentId": "PR.PS",
+          "name": null,
+          "outcome": "Installation and execution of unauthorized software are prevented",
+          "sort": 85,
+          "navLabelZhTW": null,
+          "explanationZhTW": "防止未經授權的軟體被安裝與執行。"
+        },
+        {
+          "id": "PR.PS-06",
+          "elementType": "subcategory",
+          "parentId": "PR.PS",
+          "name": null,
+          "outcome": "Secure software development practices are integrated, and their performance is monitored throughout the software development life cycle",
+          "sort": 86,
+          "navLabelZhTW": null,
+          "explanationZhTW": "納入安全的軟體開發做法，並在整個軟體開發生命週期監控這些做法的表現。"
+        },
+        {
+          "id": "PR.IR",
+          "elementType": "category",
+          "parentId": "PR",
+          "name": "Technology Infrastructure Resilience",
+          "outcome": "Security architectures are managed with the organization’s risk strategy to protect asset confidentiality, integrity, and availability, and organizational resilience",
+          "sort": 87,
+          "navLabelZhTW": "技術基礎設施韌性",
+          "explanationZhTW": "依組織的風險策略管理安全架構，以保護資產的機密性、完整性與可用性，以及組織的韌性。"
+        },
+        {
+          "id": "PR.IR-01",
+          "elementType": "subcategory",
+          "parentId": "PR.IR",
+          "name": null,
+          "outcome": "Networks and environments are protected from unauthorized logical access and usage",
+          "sort": 88,
+          "navLabelZhTW": null,
+          "explanationZhTW": "保護網路與環境，使其免於未經授權的邏輯存取與使用。"
+        },
+        {
+          "id": "PR.IR-02",
+          "elementType": "subcategory",
+          "parentId": "PR.IR",
+          "name": null,
+          "outcome": "The organization’s technology assets are protected from environmental threats",
+          "sort": 89,
+          "navLabelZhTW": null,
+          "explanationZhTW": "保護組織的技術資產，使其免於環境威脅。"
+        },
+        {
+          "id": "PR.IR-03",
+          "elementType": "subcategory",
+          "parentId": "PR.IR",
+          "name": null,
+          "outcome": "Mechanisms are implemented to achieve resilience requirements in normal and adverse situations",
+          "sort": 90,
+          "navLabelZhTW": null,
+          "explanationZhTW": "落實機制，使韌性要求在平常與不利狀況下都能達成。"
+        },
+        {
+          "id": "PR.IR-04",
+          "elementType": "subcategory",
+          "parentId": "PR.IR",
+          "name": null,
+          "outcome": "Adequate resource capacity to ensure availability is maintained",
+          "sort": 91,
+          "navLabelZhTW": null,
+          "explanationZhTW": "維持足夠的資源容量，以確保可用性。"
+        },
+        {
+          "id": "DE",
+          "elementType": "function",
+          "parentId": null,
+          "name": "Detect",
+          "outcome": "Possible cybersecurity attacks and compromises are found and analyzed",
+          "sort": 92,
+          "navLabelZhTW": "偵測",
+          "explanationZhTW": "偵測是找出可能的資安攻擊與入侵，並加以分析。目標是發現不利事件，並在符合已訂條件時把它認定為資安事件。"
+        },
+        {
+          "id": "DE.CM",
+          "elementType": "category",
+          "parentId": "DE",
+          "name": "Continuous Monitoring",
+          "outcome": "Assets are monitored to find anomalies, indicators of compromise, and other potentially adverse events",
+          "sort": 93,
+          "navLabelZhTW": "持續監控",
+          "explanationZhTW": "監控資產，以便找出異常、入侵跡象，以及其他可能的不利事件。"
+        },
+        {
+          "id": "DE.CM-01",
+          "elementType": "subcategory",
+          "parentId": "DE.CM",
+          "name": null,
+          "outcome": "Networks and network services are monitored to find potentially adverse events",
+          "sort": 94,
+          "navLabelZhTW": null,
+          "explanationZhTW": "監控網路與網路服務，以發現可能的不利事件。"
+        },
+        {
+          "id": "DE.CM-02",
+          "elementType": "subcategory",
+          "parentId": "DE.CM",
+          "name": null,
+          "outcome": "The physical environment is monitored to find potentially adverse events",
+          "sort": 95,
+          "navLabelZhTW": null,
+          "explanationZhTW": "監控實體環境，以發現可能的不利事件。"
+        },
+        {
+          "id": "DE.CM-03",
+          "elementType": "subcategory",
+          "parentId": "DE.CM",
+          "name": null,
+          "outcome": "Personnel activity and technology usage are monitored to find potentially adverse events",
+          "sort": 96,
+          "navLabelZhTW": null,
+          "explanationZhTW": "監控人員活動與技術使用情形，以發現可能的不利事件。"
+        },
+        {
+          "id": "DE.CM-06",
+          "elementType": "subcategory",
+          "parentId": "DE.CM",
+          "name": null,
+          "outcome": "External service provider activities and services are monitored to find potentially adverse events",
+          "sort": 97,
+          "navLabelZhTW": null,
+          "explanationZhTW": "監控外部服務提供者的活動與服務，以發現可能的不利事件。"
+        },
+        {
+          "id": "DE.CM-09",
+          "elementType": "subcategory",
+          "parentId": "DE.CM",
+          "name": null,
+          "outcome": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events",
+          "sort": 98,
+          "navLabelZhTW": null,
+          "explanationZhTW": "監控運算硬體與軟體、執行環境及其資料，以發現可能的不利事件。"
+        },
+        {
+          "id": "DE.AE",
+          "elementType": "category",
+          "parentId": "DE",
+          "name": "Adverse Event Analysis",
+          "outcome": "Anomalies, indicators of compromise, and other potentially adverse events are analyzed to characterize the events and detect cybersecurity incidents",
+          "sort": 99,
+          "navLabelZhTW": "不利事件分析",
+          "explanationZhTW": "分析異常、入侵跡象與其他可能的不利事件，用來描述這些事件，並判斷是否為資安事件。"
+        },
+        {
+          "id": "DE.AE-02",
+          "elementType": "subcategory",
+          "parentId": "DE.AE",
+          "name": null,
+          "outcome": "Potentially adverse events are analyzed to better understand associated activities",
+          "sort": 100,
+          "navLabelZhTW": null,
+          "explanationZhTW": "分析可能的不利事件，以便更了解與之相關的活動。"
+        },
+        {
+          "id": "DE.AE-03",
+          "elementType": "subcategory",
+          "parentId": "DE.AE",
+          "name": null,
+          "outcome": "Information is correlated from multiple sources",
+          "sort": 101,
+          "navLabelZhTW": null,
+          "explanationZhTW": "把來自多個來源的資訊關聯起來。"
+        },
+        {
+          "id": "DE.AE-04",
+          "elementType": "subcategory",
+          "parentId": "DE.AE",
+          "name": null,
+          "outcome": "The estimated impact and scope of adverse events are understood",
+          "sort": 102,
+          "navLabelZhTW": null,
+          "explanationZhTW": "掌握不利事件的預估影響與範圍。"
+        },
+        {
+          "id": "DE.AE-06",
+          "elementType": "subcategory",
+          "parentId": "DE.AE",
+          "name": null,
+          "outcome": "Information on adverse events is provided to authorized staff and tools",
+          "sort": 103,
+          "navLabelZhTW": null,
+          "explanationZhTW": "把不利事件的資訊提供給經授權的人員與工具。"
+        },
+        {
+          "id": "DE.AE-07",
+          "elementType": "subcategory",
+          "parentId": "DE.AE",
+          "name": null,
+          "outcome": "Cyber threat intelligence and other contextual information are integrated into the analysis",
+          "sort": 104,
+          "navLabelZhTW": null,
+          "explanationZhTW": "把網路威脅情資與其他情境資訊納入分析。"
+        },
+        {
+          "id": "DE.AE-08",
+          "elementType": "subcategory",
+          "parentId": "DE.AE",
+          "name": null,
+          "outcome": "Incidents are declared when adverse events meet the defined incident criteria",
+          "sort": 105,
+          "navLabelZhTW": null,
+          "explanationZhTW": "當不利事件符合已定義的資安事件條件時，宣告為資安事件。"
+        },
+        {
+          "id": "RS",
+          "elementType": "function",
+          "parentId": null,
+          "name": "Respond",
+          "outcome": "Actions regarding a detected cybersecurity incident are taken",
+          "sort": 106,
+          "navLabelZhTW": "應變",
+          "explanationZhTW": "應變是在偵測到資安事件之後採取行動，包含啟動計畫、調查、通報，以及遏制與清除。重點是事件發生當下怎麼處置。"
+        },
+        {
+          "id": "RS.MA",
+          "elementType": "category",
+          "parentId": "RS",
+          "name": "Incident Management",
+          "outcome": "Responses to detected cybersecurity incidents are managed",
+          "sort": 107,
+          "navLabelZhTW": "資安事件管理",
+          "explanationZhTW": "管理對已偵測到的資安事件所做的應變。"
+        },
+        {
+          "id": "RS.MA-01",
+          "elementType": "subcategory",
+          "parentId": "RS.MA",
+          "name": null,
+          "outcome": "The incident response plan is executed in coordination with relevant third parties once an incident is declared",
+          "sort": 108,
+          "navLabelZhTW": null,
+          "explanationZhTW": "資安事件一旦宣告，就與相關第三方協調，執行資安事件應變計畫。"
+        },
+        {
+          "id": "RS.MA-02",
+          "elementType": "subcategory",
+          "parentId": "RS.MA",
+          "name": null,
+          "outcome": "Incident reports are triaged and validated",
+          "sort": 109,
+          "navLabelZhTW": null,
+          "explanationZhTW": "資安事件通報要先分級檢傷，並確認是否成立。"
+        },
+        {
+          "id": "RS.MA-03",
+          "elementType": "subcategory",
+          "parentId": "RS.MA",
+          "name": null,
+          "outcome": "Incidents are categorized and prioritized",
+          "sort": 110,
+          "navLabelZhTW": null,
+          "explanationZhTW": "資安事件要分類並排定優先順序。"
+        },
+        {
+          "id": "RS.MA-04",
+          "elementType": "subcategory",
+          "parentId": "RS.MA",
+          "name": null,
+          "outcome": "Incidents are escalated or elevated as needed",
+          "sort": 111,
+          "navLabelZhTW": null,
+          "explanationZhTW": "必要時把資安事件向上呈報或提升處理層級。"
+        },
+        {
+          "id": "RS.MA-05",
+          "elementType": "subcategory",
+          "parentId": "RS.MA",
+          "name": null,
+          "outcome": "The criteria for initiating incident recovery are applied",
+          "sort": 112,
+          "navLabelZhTW": null,
+          "explanationZhTW": "套用已訂的條件，決定何時啟動資安事件復原。"
+        },
+        {
+          "id": "RS.AN",
+          "elementType": "category",
+          "parentId": "RS",
+          "name": "Incident Analysis",
+          "outcome": "Investigations are conducted to ensure effective response and support forensics and recovery activities",
+          "sort": 113,
+          "navLabelZhTW": "資安事件分析",
+          "explanationZhTW": "進行調查，讓應變做得到，並支援數位鑑識與復原。"
+        },
+        {
+          "id": "RS.AN-03",
+          "elementType": "subcategory",
+          "parentId": "RS.AN",
+          "name": null,
+          "outcome": "Analysis is performed to establish what has taken place during an incident and the root cause of the incident",
+          "sort": 114,
+          "navLabelZhTW": null,
+          "explanationZhTW": "分析資安事件中發生了什麼，以及事件的根本原因。"
+        },
+        {
+          "id": "RS.AN-06",
+          "elementType": "subcategory",
+          "parentId": "RS.AN",
+          "name": null,
+          "outcome": "Actions performed during an investigation are recorded, and the records’ integrity and provenance are preserved",
+          "sort": 115,
+          "navLabelZhTW": null,
+          "explanationZhTW": "調查過程中採取的行動要留下紀錄，並保存這些紀錄的完整性，以及它們從何而來。"
+        },
+        {
+          "id": "RS.AN-07",
+          "elementType": "subcategory",
+          "parentId": "RS.AN",
+          "name": null,
+          "outcome": "Incident data and metadata are collected, and their integrity and provenance are preserved",
+          "sort": 116,
+          "navLabelZhTW": null,
+          "explanationZhTW": "蒐集資安事件的資料與詮釋資料，並保存其完整性，以及它們從何而來。"
+        },
+        {
+          "id": "RS.AN-08",
+          "elementType": "subcategory",
+          "parentId": "RS.AN",
+          "name": null,
+          "outcome": "An incident’s magnitude is estimated and validated",
+          "sort": 117,
+          "navLabelZhTW": null,
+          "explanationZhTW": "估計資安事件的規模，並加以確認。"
+        },
+        {
+          "id": "RS.CO",
+          "elementType": "category",
+          "parentId": "RS",
+          "name": "Incident Response Reporting and Communication",
+          "outcome": "Response activities are coordinated with internal and external stakeholders as required by laws, regulations, or policies",
+          "sort": 118,
+          "navLabelZhTW": "通報與溝通",
+          "explanationZhTW": "依法律、監管要求或政策，與內部及外部利害關係人協調應變活動。"
+        },
+        {
+          "id": "RS.CO-02",
+          "elementType": "subcategory",
+          "parentId": "RS.CO",
+          "name": null,
+          "outcome": "Internal and external stakeholders are notified of incidents",
+          "sort": 119,
+          "navLabelZhTW": null,
+          "explanationZhTW": "將資安事件通知內部與外部利害關係人。"
+        },
+        {
+          "id": "RS.CO-03",
+          "elementType": "subcategory",
+          "parentId": "RS.CO",
+          "name": null,
+          "outcome": "Information is shared with designated internal and external stakeholders",
+          "sort": 120,
+          "navLabelZhTW": null,
+          "explanationZhTW": "與指定的內部及外部利害關係人分享資訊。"
+        },
+        {
+          "id": "RS.MI",
+          "elementType": "category",
+          "parentId": "RS",
+          "name": "Incident Mitigation",
+          "outcome": "Activities are performed to prevent expansion of an event and mitigate its effects",
+          "sort": 121,
+          "navLabelZhTW": "遏制與清除",
+          "explanationZhTW": "採取行動，避免事件擴大並減輕其影響。"
+        },
+        {
+          "id": "RS.MI-01",
+          "elementType": "subcategory",
+          "parentId": "RS.MI",
+          "name": null,
+          "outcome": "Incidents are contained",
+          "sort": 122,
+          "navLabelZhTW": null,
+          "explanationZhTW": "遏制資安事件，使它不再擴大。"
+        },
+        {
+          "id": "RS.MI-02",
+          "elementType": "subcategory",
+          "parentId": "RS.MI",
+          "name": null,
+          "outcome": "Incidents are eradicated",
+          "sort": 123,
+          "navLabelZhTW": null,
+          "explanationZhTW": "清除資安事件，把造成事件的因素從環境中移除。"
+        },
+        {
+          "id": "RC",
+          "elementType": "function",
+          "parentId": null,
+          "name": "Recover",
+          "outcome": "Assets and operations affected by a cybersecurity incident are restored",
+          "sort": 124,
+          "navLabelZhTW": "復原",
+          "explanationZhTW": "復原是把受資安事件影響的資產與營運恢復到可用狀態，並讓該知道的人了解進度。復原要依條件宣告結束，也要完成與事件相關的文件。"
+        },
+        {
+          "id": "RC.RP",
+          "elementType": "category",
+          "parentId": "RC",
+          "name": "Incident Recovery Plan Execution",
+          "outcome": "Restoration activities are performed to ensure operational availability of systems and services affected by cybersecurity incidents",
+          "sort": 125,
+          "navLabelZhTW": "復原計畫執行",
+          "explanationZhTW": "執行復原活動，讓受資安事件影響的系統與服務恢復到可營運的狀態。"
+        },
+        {
+          "id": "RC.RP-01",
+          "elementType": "subcategory",
+          "parentId": "RC.RP",
+          "name": null,
+          "outcome": "The recovery portion of the incident response plan is executed once initiated from the incident response process",
+          "sort": 126,
+          "navLabelZhTW": null,
+          "explanationZhTW": "一旦從應變流程啟動復原，就執行資安事件應變計畫中的復原部分。"
+        },
+        {
+          "id": "RC.RP-02",
+          "elementType": "subcategory",
+          "parentId": "RC.RP",
+          "name": null,
+          "outcome": "Recovery actions are selected, scoped, prioritized, and performed",
+          "sort": 127,
+          "navLabelZhTW": null,
+          "explanationZhTW": "選擇復原行動、界定範圍、排定優先順序，並加以執行。"
+        },
+        {
+          "id": "RC.RP-03",
+          "elementType": "subcategory",
+          "parentId": "RC.RP",
+          "name": null,
+          "outcome": "The integrity of backups and other restoration assets is verified before using them for restoration",
+          "sort": 128,
+          "navLabelZhTW": null,
+          "explanationZhTW": "在使用備份與其他復原用資產進行還原之前，先驗證它們的完整性。"
+        },
+        {
+          "id": "RC.RP-04",
+          "elementType": "subcategory",
+          "parentId": "RC.RP",
+          "name": null,
+          "outcome": "Critical mission functions and cybersecurity risk management are considered to establish post-incident operational norms",
+          "sort": 129,
+          "navLabelZhTW": null,
+          "explanationZhTW": "把關鍵任務功能與資安風險管理納入考量，以建立事件後的營運常態。"
+        },
+        {
+          "id": "RC.RP-05",
+          "elementType": "subcategory",
+          "parentId": "RC.RP",
+          "name": null,
+          "outcome": "The integrity of restored assets is verified, systems and services are restored, and normal operating status is confirmed",
+          "sort": 130,
+          "navLabelZhTW": null,
+          "explanationZhTW": "驗證已還原資產的完整性，恢復系統與服務，並確認已回到正常運作狀態。"
+        },
+        {
+          "id": "RC.RP-06",
+          "elementType": "subcategory",
+          "parentId": "RC.RP",
+          "name": null,
+          "outcome": "The end of incident recovery is declared based on criteria, and incident-related documentation is completed",
+          "sort": 131,
+          "navLabelZhTW": null,
+          "explanationZhTW": "依條件宣告資安事件復原結束，並完成與該資安事件相關的文件。"
+        },
+        {
+          "id": "RC.CO",
+          "elementType": "category",
+          "parentId": "RC",
+          "name": "Incident Recovery Communication",
+          "outcome": "Restoration activities are coordinated with internal and external parties",
+          "sort": 132,
+          "navLabelZhTW": "復原溝通",
+          "explanationZhTW": "與內部及外部相關單位協調復原活動。"
+        },
+        {
+          "id": "RC.CO-03",
+          "elementType": "subcategory",
+          "parentId": "RC.CO",
+          "name": null,
+          "outcome": "Recovery activities and progress in restoring operational capabilities are communicated to designated internal and external stakeholders",
+          "sort": 133,
+          "navLabelZhTW": null,
+          "explanationZhTW": "向指定的內部與外部利害關係人說明復原活動，以及營運能力恢復的進度。"
+        },
+        {
+          "id": "RC.CO-04",
+          "elementType": "subcategory",
+          "parentId": "RC.CO",
+          "name": null,
+          "outcome": "Public updates on incident recovery are shared using approved methods and messaging",
+          "sort": 134,
+          "navLabelZhTW": null,
+          "explanationZhTW": "以經過核准的方式與訊息，對外分享資安事件復原的公開更新。"
+        }
+      ]
+    }
+  ]
+}

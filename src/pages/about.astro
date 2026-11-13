@@ -1,0 +1,76 @@
+---
+import Base from "../layouts/Base.astro";
+import { csf, sourceChecked, counts, href } from "../lib/catalog";
+
+const crumbs = [
+  { href: href(), label: "地圖" },
+  { label: "來源" },
+];
+---
+
+<Base
+  title="來源與讀法"
+  description="本站如何引用 NIST CSWP 29，以及繁體中文說明為什麼是非官方。"
+  crumbs={crumbs}
+>
+  <article class="page prose">
+    <header class="mast" data-fn="ID">
+      <p class="eyebrow">About this guide</p>
+      <h1>來源與讀法</h1>
+      <p class="meta">來源核對 {sourceChecked}</p>
+    </header>
+
+    <h2>這個網站是什麼</h2>
+    <p>
+      這是 NIST Cybersecurity Framework 2.0 Core 的導覽，出版品是 {csf.publicationId}《{csf.title}》，發布日期 {csf.published}。
+      範圍是附錄 A 的 {counts.functions} 項功能、{counts.categories} 個類別、{counts.subcategories} 項子類別。
+      實施示例、資訊性參考、組織剖繪與層級（Tiers）沒有收進這張地圖，那些要回 NIST 的 PDF、Reference Tool 與 CPRT。
+    </p>
+
+    <h2>中文怎麼看</h2>
+    <p>
+      每一條的英文成果敘述是官方文字。標成「非官方說明」的繁體中文是本站用臺灣資安用語改寫的白話，用詞包含資安、資安事件、資產、存取控制。它不是翻譯對照，也不能代替 NIST 的句子。
+    </p>
+    <p>
+      NIST 官方繁體中文譯本的書名是《NIST 網路安全框架（CSF）2.0》。那份譯本與本站說明是兩件事。
+    </p>
+
+    <h2 id="gaps">編號為什麼會跳</h2>
+    <p>
+      CSWP 29 附錄 A 寫明，子類別編號故意不連續，空號表示 CSF 1.1 的子類別在 2.0 已移走。常見問答再說明：1.1 的意思沒有被刪掉，都收在 2.0 裡；移走的識別碼不會再拿來用。本站保留這些空號，不把已撤回的 1.1 識別碼列成現行子類別。
+    </p>
+    <p>
+      RC.RP-06 在 PDF 裡被斷行連字成 “incident-” 與 “related”。這裡採用 CSF 2.0 Reference Tool 匯出的寫法 “incident-related”。
+    </p>
+
+    <h2>著作權與致謝</h2>
+    <p>{csf.publicDomain.statement}</p>
+    <p lang="en">{csf.publicDomain.credit}</p>
+    <p>
+      建議引用出版品：National Institute of Standards and Technology (2024) The NIST Cybersecurity Framework (CSF) 2.0. NIST CSWP 29.
+      <a href={csf.doi}>{csf.doi}</a>
+    </p>
+    <p>
+      六項功能的色碼來自 NIST CSF 常見問答公布的 CSF Six Functions Graphic：Govern {csf.presentation.colors.GV}、Identify {csf.presentation.colors.ID}、Protect {csf.presentation.colors.PR}、Detect {csf.presentation.colors.DE}、Respond {csf.presentation.colors.RS}、Recover {csf.presentation.colors.RC}。
+    </p>
+
+    <h2>資料檔</h2>
+    <p>
+      框架內容放在 <code>data/nist-cswp-29.json</code>。一份出版品是一個 document，底下的 elements 用 parentId 串成樹。CSF 2.0 的 elementType 是 function、category、subcategory。之後若要加 SP 800-53、SP 800-61、SP 800-63 或 SP 800-207，可以新增 document，或另外放一份用 element id 對應的關係檔；資訊性參考刻意沒有嵌進這份 Core。
+    </p>
+    <p>
+      <code>navLabelZhTW</code> 與 <code>explanationZhTW</code> 都是非官方欄位。官方英文在 <code>name</code> 與 <code>outcome</code>。
+    </p>
+
+    <h2>官方連結</h2>
+    <ul>
+      <li><a href={csf.urls.pdf}>NIST CSWP 29 英文 PDF</a></li>
+      <li><a href={csf.urls.pdfZhHant}>NIST CSWP 29 官方繁體中文譯本</a></li>
+      <li><a href={csf.urls.home}>NIST Cybersecurity Framework 網站</a></li>
+      <li><a href={csf.urls.cprt}>Cybersecurity and Privacy Reference Tool（CPRT）</a></li>
+      <li><a href={csf.urls.referenceTool}>CSF 2.0 Reference Tool</a></li>
+      <li><a href={csf.urls.faq}>NIST CSF 常見問答</a></li>
+      <li><a href={csf.doi}>doi:10.6028/NIST.CSWP.29</a></li>
+    </ul>
+  </article>
+</Base>

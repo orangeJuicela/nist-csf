@@ -1,0 +1,53 @@
+---
+import { functions, elementHref, href } from "../lib/catalog";
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href={href()}>
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="7" fill="#f3efe6"></rect>
+        <circle cx="16" cy="16" r="5.1" fill="#f9f49d" stroke="#1c2430" stroke-width="0.6"></circle>
+        <circle cx="16" cy="6.3" r="3" fill="#4bb2e0"></circle>
+        <circle cx="25.2" cy="12.9" r="3" fill="#9292ea"></circle>
+        <circle cx="21.7" cy="23.5" r="3" fill="#fab746"></circle>
+        <circle cx="10.3" cy="23.5" r="3" fill="#f97367"></circle>
+        <circle cx="6.8" cy="12.9" r="3" fill="#7df49f"></circle>
+      </svg>
+      <span>
+        <strong>CSF 2.0 導覽</strong>
+        <small>NIST CSWP 29</small>
+      </span>
+    </a>
+    <nav class="primary-nav" aria-label="主要">
+      <a href={href()}>地圖</a>
+      <a href={href("about/")}>來源</a>
+      <a href={href("search/")}>搜尋頁</a>
+    </nav>
+    <div class="header-tools">
+      <button class="tool" type="button" data-open-search>搜尋</button>
+      <button class="tool toc-toggle" type="button" data-toc-toggle aria-expanded="false" aria-controls="site-toc">目錄</button>
+    </div>
+  </div>
+  <nav class="fn-nav-bar" aria-label="六項功能">
+    {
+      functions.map((fn) => (
+        <a class="fn-chip" href={elementHref(fn)} data-fn={fn.id}>
+          <span class="code">{fn.id}</span>
+          {fn.navLabelZhTW}
+        </a>
+      ))
+    }
+  </nav>
+  <dialog id="search-dialog" class="search-dialog" aria-label="搜尋">
+    <div class="search-dialog-inner" data-search>
+      <div class="search-row">
+        <input data-search-input type="search" placeholder="搜尋 ID、英文或中文" aria-label="搜尋 CSF 2.0" />
+        <button class="tool" type="button" data-search-close>關閉</button>
+      </div>
+      <p data-search-status class="search-status"></p>
+      <ul data-search-results class="search-results"></ul>
+      <p class="source-line"><a href={href("search/")}>開成獨立搜尋頁</a></p>
+    </div>
+  </dialog>
+</header>
