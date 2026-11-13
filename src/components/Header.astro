@@ -20,29 +20,24 @@ import { functions, elementHref, href } from "../lib/catalog";
       </span>
     </a>
     <nav class="primary-nav" aria-label="主要">
-      <a href={href()}>地圖</a>
-      <a href={href("about/")}>來源</a>
-      <a href={href("search/")}>搜尋頁</a>
+      <a href={href()}>開始</a>
+      <a href={href("glossary/")}>名詞</a>
     </nav>
     <div class="header-tools">
       <button class="tool" type="button" data-open-search>搜尋</button>
-      <button class="tool toc-toggle" type="button" data-toc-toggle aria-expanded="false" aria-controls="site-toc">目錄</button>
     </div>
   </div>
   <nav class="fn-nav-bar" aria-label="六項功能">
     {
       functions.map((fn) => (
-        <a class="fn-chip" href={elementHref(fn)} data-fn={fn.id}>
-          <span class="code">{fn.id}</span>
-          {fn.navLabelZhTW}
-        </a>
+        <a class="fn-chip" href={elementHref(fn)} data-fn={fn.id}>{fn.navLabelZhTW}</a>
       ))
     }
   </nav>
   <dialog id="search-dialog" class="search-dialog" aria-label="搜尋">
     <div class="search-dialog-inner" data-search>
       <div class="search-row">
-        <input data-search-input type="search" placeholder="搜尋 ID、英文或中文" aria-label="搜尋 CSF 2.0" />
+        <input data-search-input type="search" placeholder="例如：備份、勒索、保護" aria-label="搜尋" />
         <button class="tool" type="button" data-search-close>關閉</button>
       </div>
       <p data-search-status class="search-status"></p>

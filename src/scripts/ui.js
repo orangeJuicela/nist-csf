@@ -91,7 +91,7 @@ function bindSearch(root, itemsLoaded) {
       history.replaceState(null, "", url);
     }
     if (!query) {
-      status.textContent = "輸入 ID、英文成果或中文說明。例如 GV.OC-03、存取控制、backup。";
+      status.textContent = "輸入想找的詞，例如備份、勒索、保護。";
       list.replaceChildren();
       return;
     }

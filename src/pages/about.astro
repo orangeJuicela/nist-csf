@@ -3,7 +3,7 @@ import Base from "../layouts/Base.astro";
 import { csf, sourceChecked, counts, href } from "../lib/catalog";
 
 const crumbs = [
-  { href: href(), label: "地圖" },
+  { href: href(), label: "開始" },
   { label: "來源" },
 ];
 ---
@@ -20,6 +20,7 @@ const crumbs = [
       <p class="meta">來源核對 {sourceChecked}</p>
     </header>
 
+    <p><a href={href()}>想先看懂，從首頁三個步驟開始。</a>名詞在<a href={href("glossary/")}>小辭典</a>。</p>
     <h2>這個網站是什麼</h2>
     <p>
       這是 NIST Cybersecurity Framework 2.0 Core 的導覽，出版品是 {csf.publicationId}《{csf.title}》，發布日期 {csf.published}。

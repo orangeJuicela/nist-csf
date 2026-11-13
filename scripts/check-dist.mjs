@@ -43,6 +43,7 @@ const required = [
   "dist/category/id-am/index.html",
   "dist/category/rc-rp/index.html",
   "dist/404.html",
+  "dist/glossary/index.html",
 ];
 for (const path of required) {
   if (!files.includes(path)) fail(`missing ${path}`);
@@ -51,8 +52,13 @@ for (const path of required) {
 const index = JSON.parse(readFileSync("dist/search-index.json", "utf8"));
 if (index.length !== 134) fail(`search index length ${index.length}`);
 const home = readFileSync("dist/index.html", "utf8");
-for (const text of ["6", "22", "106"]) {
-  if (!home.includes(text)) fail(`home missing count ${text}`);
+for (const text of ["從這裡開始", "家門上鎖", "CSF 是什麼"]) {
+  if (!home.includes(text)) fail(`home missing ${text}`);
+}
+if (home.includes("GV.OC") || home.includes(">GV<")) fail("home still shows framework IDs");
+const glossary = readFileSync("dist/glossary/index.html", "utf8");
+for (const text of ["資產", "風險", "事件應變"]) {
+  if (!glossary.includes(text)) fail(`glossary missing ${text}`);
 }
 
 if (failed) process.exit(1);
