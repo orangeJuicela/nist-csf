@@ -1,0 +1,27 @@
+---
+import { csf, sourceChecked, href } from "../lib/catalog";
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>
+      英文成果敘述取自 NIST CSWP 29《{csf.title}》（{csf.published}）附錄 A。來源核對 {sourceChecked}。
+    </p>
+    <p>
+      {csf.publicDomain.statement}
+      {" "}
+      <span lang="en" class="credit">{csf.publicDomain.credit}</span>
+    </p>
+    <ul class="footer-links">
+      <li><a href={csf.urls.pdf}>英文 PDF（NIST CSWP 29）</a></li>
+      <li><a href={csf.urls.pdfZhHant}>官方繁體中文譯本</a></li>
+      <li><a href={csf.urls.home}>NIST CSF 網站</a></li>
+      <li><a href={csf.urls.cprt}>CPRT</a></li>
+      <li><a href={csf.urls.referenceTool}>CSF 2.0 Reference Tool</a></li>
+      <li><a href={href("about/")}>本站說明</a></li>
+    </ul>
+    <p>
+      本站中文是非官方說明，不是 NIST 譯文。功能色碼取自 NIST 公布的 CSF Six Functions Graphic。
+    </p>
+  </div>
+</footer>

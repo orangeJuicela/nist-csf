@@ -1,0 +1,93 @@
+---
+import Base from "../../layouts/Base.astro";
+import Pager from "../../components/Pager.astro";
+import {
+  categories,
+  childrenOf,
+  getElement,
+  elementHref,
+  missingSubcategoryIds,
+  slug,
+  href,
+  type CatalogElement,
+} from "../../lib/catalog";
+
+export function getStaticPaths() {
+  return categories.map((cat) => ({
+    params: { id: slug(cat.id) },
+    props: { cat },
+  }));
+}
+
+interface Props {
+  cat: CatalogElement;
+}
+
+const { cat } = Astro.props;
+const fn = getElement(cat.parentId ?? "");
+const subs = childrenOf(cat.id);
+const gaps = missingSubcategoryIds(cat.id);
+const crumbs = [
+  { href: href(), label: "地圖" },
+  { href: elementHref(fn), label: `${fn.navLabelZhTW} ${fn.id}` },
+  { label: `${cat.id} ${cat.navLabelZhTW}` },
+];
+---
+
+<Base
+  title={`${cat.id} ${cat.navLabelZhTW}`}
+  description={cat.explanationZhTW}
+  currentId={cat.id}
+  crumbs={crumbs}
+>
+  <article class="page" data-fn={fn.id}>
+    <header class="mast" data-fn={fn.id}>
+      <p class="eyebrow">{fn.navLabelZhTW} · {fn.id}</p>
+      <h1>{cat.navLabelZhTW}</h1>
+      <p class="en-name" lang="en">{cat.id} · {cat.name}</p>
+      <p class="meta">{subs.length} 項子類別</p>
+    </header>
+
+    <div class="bilingual" data-fn={fn.id}>
+      <section class="official" lang="en">
+        <p class="kicker">官方英文成果敘述</p>
+        <p>{cat.outcome}</p>
+      </section>
+      <section class="unofficial">
+        <p class="kicker">非官方說明</p>
+        <p>{cat.explanationZhTW}</p>
+      </section>
+    </div>
+
+    {
+      gaps.length > 0 && (
+        <aside class="gap-note">
+          <p>
+            這個類別的子類別編號不連續。空號是 CSF 2.0 刻意留下的，代表 CSF 1.1 的子類別已移到別處，不是漏收。出處是 NIST CSWP 29 附錄 A；常見問答也說明 1.1 的意思仍在 2.0 之中。
+          </p>
+          <ul class="gap-ids">
+            {gaps.map((id) => (
+              <li>{id}</li>
+            ))}
+          </ul>
+        </aside>
+      )
+    }
+
+    <h2>子類別</h2>
+    <ol class="sub-list">
+      {
+        subs.map((sub) => (
+          <li id={sub.id}>
+            <h3 class="sub-id">{sub.id}</h3>
+            <p class="kicker">官方英文成果敘述</p>
+            <p class="official-text" lang="en">{sub.outcome}</p>
+            <p class="kicker">非官方說明</p>
+            <p>{sub.explanationZhTW}</p>
+          </li>
+        ))
+      }
+    </ol>
+    <Pager id={cat.id} />
+  </article>
+</Base>

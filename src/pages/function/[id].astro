@@ -1,0 +1,76 @@
+---
+import Base from "../../layouts/Base.astro";
+import Pager from "../../components/Pager.astro";
+import {
+  functions,
+  childrenOf,
+  elementHref,
+  subcategoryCount,
+  slug,
+  href,
+  type CatalogElement,
+} from "../../lib/catalog";
+
+export function getStaticPaths() {
+  return functions.map((fn) => ({
+    params: { id: slug(fn.id) },
+    props: { fn },
+  }));
+}
+
+interface Props {
+  fn: CatalogElement;
+}
+
+const { fn } = Astro.props;
+const cats = childrenOf(fn.id);
+const crumbs = [
+  { href: href(), label: "地圖" },
+  { label: `${fn.navLabelZhTW} ${fn.id}` },
+];
+---
+
+<Base
+  title={`${fn.navLabelZhTW} ${fn.name}（${fn.id}）`}
+  description={fn.explanationZhTW}
+  currentId={fn.id}
+  crumbs={crumbs}
+>
+  <article class="page">
+    <header class="mast" data-fn={fn.id}>
+      <p class="eyebrow">{fn.id} · Function</p>
+      <h1>{fn.navLabelZhTW}</h1>
+      <p class="en-name" lang="en">{fn.name}</p>
+      <p class="meta">{cats.length} 個類別 · {subcategoryCount(fn.id)} 項子類別</p>
+    </header>
+
+    <div class="bilingual" data-fn={fn.id}>
+      <section class="official" lang="en">
+        <p class="kicker">官方英文成果敘述</p>
+        <p>{fn.outcome}</p>
+      </section>
+      <section class="unofficial">
+        <p class="kicker">非官方說明</p>
+        <p>{fn.explanationZhTW}</p>
+      </section>
+    </div>
+
+    <h2>類別</h2>
+    <ol class="cat-list">
+      {
+        cats.map((cat) => (
+          <li>
+            <a class="cat-card" href={elementHref(cat)} data-fn={fn.id}>
+              <p class="kicker">{cat.id}</p>
+              <h2>{cat.navLabelZhTW}</h2>
+              <p class="en" lang="en">{cat.name}</p>
+              <p>{cat.explanationZhTW}</p>
+              <p class="meta">{childrenOf(cat.id).length} 項子類別</p>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+    <Pager id={fn.id} />
+  </article>
+</Base>

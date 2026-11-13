@@ -1,0 +1,63 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Sidebar from "../components/Sidebar.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+
+interface Crumb {
+  href?: string;
+  label: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  currentId?: string;
+  expandAll?: boolean;
+  crumbs?: Crumb[];
+}
+
+const { title, description, currentId, expandAll = false, crumbs = [] } = Astro.props;
+const fullTitle = title === "NIST 資安框架 2.0 導覽" ? title : `${title} · CSF 2.0 導覽`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body data-base={import.meta.env.BASE_URL}>
+    <a class="skip" href="#content">跳到本文</a>
+    <Header />
+    <div class="stripe" aria-hidden="true"></div>
+    <div class="shell">
+      <Sidebar currentId={currentId} expandAll={expandAll} />
+      <button class="backdrop" type="button" aria-label="關閉目錄"></button>
+      <main id="content">
+        {crumbs.length > 0 && <Breadcrumbs items={crumbs} />}
+        <slot />
+      </main>
+    </div>
+    <Footer />
+    <script>
+      import "../scripts/ui.js";
+    </script>
+  </body>
+</html>

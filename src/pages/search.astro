@@ -1,0 +1,33 @@
+---
+import Base from "../layouts/Base.astro";
+import { href } from "../lib/catalog";
+
+const crumbs = [
+  { href: href(), label: "地圖" },
+  { label: "搜尋" },
+];
+---
+
+<Base
+  title="搜尋"
+  description="在 NIST CSF 2.0 的功能、類別與子類別中搜尋 ID、英文成果與繁體中文說明。"
+  crumbs={crumbs}
+>
+  <article class="page">
+    <header class="mast" data-fn="PR">
+      <p class="eyebrow">Search</p>
+      <h1>搜尋框架</h1>
+      <p class="meta">可查 ID、官方英文與非官方中文。按 <kbd>/</kbd> 也能從任何一頁打開搜尋。</p>
+    </header>
+    <div class="search-panel" data-search data-search-autoload>
+      <div class="search-row">
+        <input data-search-input type="search" placeholder="例如 ID.AM、供應鏈、least privilege" aria-label="搜尋 CSF 2.0" />
+      </div>
+      <p data-search-status class="search-status"></p>
+      <ul data-search-results class="search-results"></ul>
+    </div>
+    <noscript>
+      <p>搜尋需要 JavaScript。目錄裡的功能與類別不需要 JavaScript 就能瀏覽。</p>
+    </noscript>
+  </article>
+</Base>

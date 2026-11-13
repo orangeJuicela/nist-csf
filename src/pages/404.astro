@@ -1,0 +1,15 @@
+---
+import Base from "../layouts/Base.astro";
+import { href } from "../lib/catalog";
+---
+
+<Base title="找不到頁面" description="這個網址不在 NIST CSF 2.0 導覽裡。">
+  <article class="page">
+    <header class="mast" data-fn="RS">
+      <p class="eyebrow">404</p>
+      <h1>找不到這個頁面</h1>
+    </header>
+    <p>這份導覽只收錄 CSF 2.0 的功能、類別與子類別。從地圖或目錄重新進去即可。</p>
+    <p><a class="button" href={href()}>回到地圖</a></p>
+  </article>
+</Base>
