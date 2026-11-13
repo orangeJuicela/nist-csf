@@ -599,7 +599,7 @@ main { min-width: 0; padding-bottom: 4rem; }
 }
 
 @media (max-width: 720px) {
-  .wheel-wrap { display: none; }
+  .wheel-svg { max-width: 100%; }
   .fn-grid, .stats, .pager { grid-template-columns: 1fr; }
   .pager-next { grid-column: auto; }
   .hero h1 { font-size: 2.15rem; }
@@ -688,6 +688,100 @@ main { min-width: 0; padding-bottom: 4rem; }
 .glossary div { padding: 1.1rem 0; border-top: 1px solid var(--line); text-align: left; }
 .glossary dt { font-family: var(--serif); font-size: 1.35rem; font-weight: 700; }
 .glossary dd { margin: 0.35rem 0 0; }
+
+.flow {
+  margin: 1rem 0 0;
+  text-align: left;
+}
+.flow figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+}
+.flow figcaption span { color: var(--muted); font-size: 0.95rem; }
+.flow-band {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  align-items: baseline;
+  background: var(--fn);
+  color: var(--fn-ink);
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.4rem;
+}
+.flow-band a { color: inherit; font-weight: 700; text-decoration: none; }
+.flow ol { list-style: none; margin: 0; padding: 0; }
+.flow li {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: 0.6rem;
+  align-items: center;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-left: 8px solid var(--fn);
+  border-radius: 14px;
+  padding: 0.75rem 0.9rem;
+  margin: 0 0 1.35rem;
+  position: relative;
+  text-align: left;
+}
+.flow li:last-child { margin-bottom: 0; }
+.flow li:not(:last-child)::after {
+  content: "↓";
+  position: absolute;
+  left: 1.3rem;
+  bottom: -1.2rem;
+  color: var(--muted);
+  line-height: 1;
+}
+.flow li a { color: var(--fn-ink); font-weight: 700; text-decoration: none; }
+
+.sketch { margin: 1.1rem 0 0; }
+.sketch ol {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sketch li {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
+  position: relative;
+  font-size: 0.95rem;
+  color: var(--fn-ink);
+}
+.sketch li:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -0.55rem;
+  top: 0.55rem;
+  color: var(--fn-deep);
+}
+.sketch-icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--fn) 70%, white);
+  color: var(--fn-ink);
+  display: grid;
+  place-items: center;
+}
+.sketch-icon svg { width: 1.7rem; height: 1.7rem; }
+
+@media (max-width: 560px) {
+  .sketch ol { flex-direction: column; align-items: stretch; }
+  .sketch li { flex-direction: row; justify-content: flex-start; text-align: left; gap: 0.7rem; }
+  .sketch li:not(:last-child)::after { position: static; content: "↓"; margin-left: 1.15rem; }
+}
 
 @media print {
   .site-header, .stripe, .toc, .backdrop, .pager, .hero-actions, .site-footer { display: none !important; }

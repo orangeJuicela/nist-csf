@@ -1,5 +1,5 @@
 ---
-import { functions, childrenOf, elementHref, subcategoryCount } from "../lib/catalog";
+import { functions, elementHref } from "../lib/catalog";
 
 const center = functions.find((fn) => fn.id === "GV");
 const ring = functions.filter((fn) => fn.id !== "GV");
@@ -7,9 +7,9 @@ if (!center) throw new Error("Govern missing");
 
 const cx = 320;
 const cy = 320;
-const inner = 132;
-const outer = 286;
-const gap = 0.03;
+const inner = 128;
+const outer = 292;
+const gap = 0.035;
 const sweep = (Math.PI * 2) / ring.length;
 
 function polar(radius: number, angle: number): [number, number] {
@@ -30,44 +30,28 @@ const slices = ring.map((fn, index) => {
   const end = -Math.PI / 2 + sweep * (index + 1) - gap / 2;
   const mid = (start + end) / 2;
   const [lx, ly] = polar((inner + outer) / 2, mid);
-  return { fn, d: sector(start, end), lx, ly, categories: childrenOf(fn.id).length };
+  return { fn, d: sector(start, end), lx, ly };
 });
 ---
 
-<div class="wheel-wrap">
-  <svg class="wheel-svg" viewBox="0 0 640 640" role="group" aria-label="CSF 2.0 六項功能。治理在中央，識別、保護、偵測、應變、復原依序環繞。">
+<figure class="wheel-wrap">
+  <svg class="wheel-svg" viewBox="0 0 640 640" role="group" aria-label="CSF 2.0 圖。治理在中央。外圈依序是識別、保護、偵測、應變、復原。每一塊可以點進去。">
     {
       slices.map((slice) => (
-        <a href={elementHref(slice.fn)} data-fn={slice.fn.id} aria-label={`${slice.fn.navLabelZhTW} ${slice.fn.name}，${slice.categories} 個類別`}>
-          <path d={slice.d} fill="var(--fn)" />
-          <text x={slice.lx} y={slice.ly} text-anchor="middle">
-            <tspan x={slice.lx} dy="-16" font-size="26" font-weight="700">
-              {slice.fn.navLabelZhTW}
-            </tspan>
-            <tspan class="en" x={slice.lx} dy="24" font-size="13">
-              {slice.fn.name?.toUpperCase()}
-            </tspan>
-            <tspan x={slice.lx} dy="20" font-size="13">
-              {slice.categories} 個類別
-            </tspan>
+        <a href={elementHref(slice.fn)} data-fn={slice.fn.id} aria-label={slice.fn.navLabelZhTW ?? slice.fn.id}>
+          <path d={slice.d} />
+          <text x={slice.lx} y={slice.ly} text-anchor="middle" dominant-baseline="middle" font-size="30" font-weight="700">
+            {slice.fn.navLabelZhTW}
           </text>
         </a>
       ))
     }
-    <a href={elementHref(center)} data-fn="GV" aria-label={`治理 Govern，${childrenOf(center.id).length} 個類別`}>
-      <circle cx={cx} cy={cy} r="112" fill="var(--fn)" />
-      <text x={cx} y={cy} text-anchor="middle">
-        <tspan x={cx} dy="-18" font-size="32" font-weight="700">
-          {center.navLabelZhTW}
-        </tspan>
-        <tspan class="en" x={cx} dy="26" font-size="14">
-          GOVERN
-        </tspan>
-        <tspan x={cx} dy="22" font-size="14">
-          {childrenOf(center.id).length} 個類別 · {subcategoryCount("GV")} 項
-        </tspan>
+    <a href={elementHref(center)} data-fn="GV" aria-label={center.navLabelZhTW ?? "治理"}>
+      <circle cx={cx} cy={cy} r="108" />
+      <text x={cx} y={cy} text-anchor="middle" dominant-baseline="middle" font-size="36" font-weight="700">
+        {center.navLabelZhTW}
       </text>
     </a>
   </svg>
-  <p class="wheel-note">色塊用的是 NIST 公布的六項功能色碼。點一塊進去。</p>
-</div>
+  <figcaption class="wheel-note">治理在中間。點一塊，就進到那一件。</figcaption>
+</figure>

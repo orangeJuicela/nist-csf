@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import Wheel from "../components/Wheel.astro";
+import Flow from "../components/Flow.astro";
 import { functions, elementHref, href } from "../lib/catalog";
 import { functionGuide } from "../content/guide";
 
@@ -44,7 +46,8 @@ const description = "用白話讀 NIST 資安框架：它是一份共用清單�
 
     <section id="six" aria-labelledby="six-title">
       <h2 id="six-title">六件大事</h2>
-      <p>這六件是一起做的，不是做完一件才做下一件。治理比較像事先約好的規矩。</p>
+      <p>這六件是一起做的，不是做完一件才做下一件。治理在中間，因為規矩先講好，其他事才有依據。</p>
+      <Wheel />
       <div class="card-stack" id="pick">
         {
           functions.map((fn) => {
@@ -60,6 +63,12 @@ const description = "用白話讀 NIST 資安框架：它是一份共用清單�
         }
       </div>
       <p class="fine">比方是用來想像的，不是 NIST 要你照做的規定。</p>
+    </section>
+
+    <section id="how" aria-labelledby="how-title">
+      <h2 id="how-title">同一件事，六步怎麼接</h2>
+      <p>用勒索軟體當例子。上面那條治理一直都在，不是做完才補上。</p>
+      <Flow />
     </section>
   </article>
 </Base>
