@@ -1,0 +1,33 @@
+---
+import Base from "../layouts/Base.astro";
+import { glossary } from "../content/guide";
+import { href } from "../lib/catalog";
+
+const crumbs = [
+  { href: href(), label: "開始" },
+  { label: "名詞小辭典" },
+];
+---
+
+<Base
+  title="名詞小辭典"
+  description="用短句解釋資產、風險、資安事件、事件應變這些詞。給第一次讀 CSF 的人。"
+  crumbs={crumbs}
+>
+  <article class="read">
+    <p class="eyebrow">名詞小辭典</p>
+    <h1>先把詞講白</h1>
+    <p class="lead">這些解釋是本站寫的，幫你讀下去。不是 NIST 的正式定義。</p>
+    <dl class="glossary">
+      {
+        glossary.map((entry) => (
+          <div id={entry.id}>
+            <dt>{entry.term}</dt>
+            <dd>{entry.body}</dd>
+          </div>
+        ))
+      }
+    </dl>
+    <p><a href={href()}>回到開始</a></p>
+  </article>
+</Base>

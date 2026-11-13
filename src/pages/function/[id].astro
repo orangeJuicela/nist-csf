@@ -1,15 +1,8 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Pager from "../../components/Pager.astro";
-import {
-  functions,
-  childrenOf,
-  elementHref,
-  subcategoryCount,
-  slug,
-  href,
-  type CatalogElement,
-} from "../../lib/catalog";
+import { functions, childrenOf, elementHref, slug, href, type CatalogElement } from "../../lib/catalog";
+import { functionGuide, categoryGuide, story } from "../../content/guide";
 
 export function getStaticPaths() {
   return functions.map((fn) => ({
@@ -23,54 +16,57 @@ interface Props {
 }
 
 const { fn } = Astro.props;
+const guide = functionGuide(fn.id);
 const cats = childrenOf(fn.id);
 const crumbs = [
-  { href: href(), label: "地圖" },
-  { label: `${fn.navLabelZhTW} ${fn.id}` },
+  { href: href(), label: "開始" },
+  { label: fn.navLabelZhTW ?? fn.id },
 ];
 ---
 
-<Base
-  title={`${fn.navLabelZhTW} ${fn.name}（${fn.id}）`}
-  description={fn.explanationZhTW}
-  currentId={fn.id}
-  crumbs={crumbs}
->
-  <article class="page">
-    <header class="mast" data-fn={fn.id}>
-      <p class="eyebrow">{fn.id} · Function</p>
+<Base title={fn.navLabelZhTW ?? fn.id} description={guide.line} currentId={fn.id} crumbs={crumbs}>
+  <article class="read" data-fn={fn.id}>
+    <header class="opening" data-fn={fn.id}>
+      <p class="eyebrow">六件大事之一</p>
       <h1>{fn.navLabelZhTW}</h1>
-      <p class="en-name" lang="en">{fn.name}</p>
-      <p class="meta">{cats.length} 個類別 · {subcategoryCount(fn.id)} 項子類別</p>
+      <p class="lead">{guide.line}</p>
+      <p class="analogy">比方：{guide.analogy}</p>
     </header>
 
-    <div class="bilingual" data-fn={fn.id}>
-      <section class="official" lang="en">
-        <p class="kicker">官方英文成果敘述</p>
-        <p>{fn.outcome}</p>
-      </section>
-      <section class="unofficial">
-        <p class="kicker">非官方說明</p>
-        <p>{fn.explanationZhTW}</p>
-      </section>
-    </div>
+    <section>
+      <h2>如果碰上勒索軟體</h2>
+      <p class="fine">舉例，用來想像畫面。不是 NIST 規定的做法。</p>
+      <p>{story}</p>
+      <p>{guide.scenario}</p>
+    </section>
 
-    <h2>類別</h2>
-    <ol class="cat-list">
-      {
-        cats.map((cat) => (
-          <li>
-            <a class="cat-card" href={elementHref(cat)} data-fn={fn.id}>
-              <p class="kicker">{cat.id}</p>
-              <h2>{cat.navLabelZhTW}</h2>
-              <p class="en" lang="en">{cat.name}</p>
-              <p>{cat.explanationZhTW}</p>
-              <p class="meta">{childrenOf(cat.id).length} 項子類別</p>
-            </a>
-          </li>
-        ))
-      }
-    </ol>
+    <section>
+      <h2>這一件裡在管什麼</h2>
+      <div class="card-stack">
+        {
+          cats.map((cat) => {
+            const item = categoryGuide(cat.id);
+            return (
+              <a class="plain-card" href={elementHref(cat)}>
+                <h3>{cat.navLabelZhTW}</h3>
+                <p>{item.line}</p>
+                <p class="analogy">比方：{item.example}</p>
+              </a>
+            );
+          })
+        }
+      </div>
+      <p class="fine">點一張卡片，可以看到更細的句子。官方編號和英文收在裡面。</p>
+    </section>
+
+    <details class="official-fold">
+      <summary>看官方條文</summary>
+      <p class="kicker">官方英文成果敘述</p>
+      <p lang="en">{fn.outcome}</p>
+      <p class="kicker">非官方說明</p>
+      <p>{fn.explanationZhTW}</p>
+    </details>
+
     <Pager id={fn.id} />
   </article>
 </Base>

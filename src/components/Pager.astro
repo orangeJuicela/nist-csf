@@ -1,5 +1,5 @@
 ---
-import { neighbors, elementHref, pageLabel } from "../lib/catalog";
+import { neighbors, elementHref } from "../lib/catalog";
 
 interface Props {
   id: string;
@@ -13,7 +13,7 @@ const { prev, next } = neighbors(Astro.props.id);
     prev ? (
       <a class="pager-prev" href={elementHref(prev)}>
         <span>上一頁</span>
-        <strong>{pageLabel(prev)}</strong>
+        <strong>{prev.navLabelZhTW}</strong>
       </a>
     ) : (
       <span />
@@ -23,7 +23,7 @@ const { prev, next } = neighbors(Astro.props.id);
     next ? (
       <a class="pager-next" href={elementHref(next)}>
         <span>下一頁</span>
-        <strong>{pageLabel(next)}</strong>
+        <strong>{next.navLabelZhTW}</strong>
       </a>
     ) : (
       <span />

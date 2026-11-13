@@ -1,138 +1,65 @@
 ---
 import Base from "../layouts/Base.astro";
-import Wheel from "../components/Wheel.astro";
-import {
-  functions,
-  childrenOf,
-  elementHref,
-  subcategoryCount,
-  counts,
-  csf,
-  sourceChecked,
-  href,
-} from "../lib/catalog";
+import { functions, elementHref, href } from "../lib/catalog";
+import { functionGuide } from "../content/guide";
 
-const description =
-  "NIST CSF 2.0（CSWP 29）導覽：6 項功能、22 個類別、106 項子類別。官方英文成果與非官方繁體中文說明並陳。";
+const description = "用白話讀 NIST 資安框架：它是一份共用清單，幫你講清楚資安要做到哪些結果。從六件大事挑一件開始。";
 ---
 
-<Base
-  title="NIST 資安框架 2.0 導覽"
-  description={description}
-  expandAll={true}
->
-  <div class="page-wide">
-    <section class="hero">
-      <p class="eyebrow">NIST CSWP 29 · {csf.published} · 來源核對 {sourceChecked}</p>
-      <h1>NIST 資安框架 2.0<br />一張可以走進去的地圖</h1>
-      <p class="lede">
-        CSF 2.0 用六項同時進行的功能，描述組織管理資安風險時想達成的結果。這裡把
-        {counts.functions} 項功能、{counts.categories} 個類別、{counts.subcategories}
-        項子類別做成可以點的導覽：每一條都放 NIST 的英文成果原文，旁邊是給臺灣資安人員看的非官方說明。
-      </p>
-      <div class="hero-actions">
-        <a class="button" href="#map">從六項功能開始</a>
-        <a class="button button-ghost" href={href("about/")}>來源與中文怎麼讀</a>
-      </div>
-      <ul class="stats">
-        <li><strong>{counts.functions}</strong><span>功能 Functions</span></li>
-        <li><strong>{counts.categories}</strong><span>類別 Categories</span></li>
-        <li><strong>{counts.subcategories}</strong><span>子類別 Subcategories</span></li>
-      </ul>
+<Base title="NIST 資安框架 2.0 導覽" description={description}>
+  <article class="read">
+    <p class="eyebrow">給第一次讀的人</p>
+    <h1>資安框架，是一份大家能一起用的清單</h1>
+    <p class="lead">
+      CSF 把「資安要做到哪些結果」列成清單，讓主管、資訊人員和廠商講的是同一件事。
+    </p>
+    <p>
+      沒有清單時，有人只會買軟體，有人只擔心被罵。有了清單，才知道該先講規矩、先盤點，還是先把門關好。
+    </p>
+
+    <section class="start" aria-labelledby="start-title">
+      <h2 id="start-title">從這裡開始</h2>
+      <ol class="steps">
+        <li>
+          <a href="#what"><strong>1. CSF 是什麼</strong><span>先用三分鐘搞懂它不是產品說明書。</span></a>
+        </li>
+        <li>
+          <a href="#six"><strong>2. 六大功能一次看懂</strong><span>六件大事，各用一句話和一個生活比方。</span></a>
+        </li>
+        <li>
+          <a href="#pick"><strong>3. 挑一個功能深入</strong><span>不確定就先看「保護」，那最像把門關好。</span></a>
+        </li>
+      </ol>
     </section>
 
-    <section id="map" aria-labelledby="map-title">
-      <div class="section-head">
-        <h2 id="map-title">六項功能</h2>
-        <p>
-          官方圖示把治理放在中央。外圈依序是識別、保護、偵測、應變、復原。這六項是一起轉的，不是做完一項才做下一項。
-        </p>
-      </div>
-      <Wheel />
-      <div class="fn-grid">
+    <section id="what" aria-labelledby="what-title">
+      <h2 id="what-title">CSF 是什麼</h2>
+      <p>它不規定你買哪一套產品。</p>
+      <p>它只寫結果。例如「重要資料要有備份」，而不是「請安裝某某牌防毒」。</p>
+      <p>
+        這是美國 NIST 在 2024 年 2 月發布的第 2 版。本站用臺灣的說法幫你讀。
+        <a href={href("glossary/")}>名詞看不懂，先翻小辭典。</a>
+      </p>
+    </section>
+
+    <section id="six" aria-labelledby="six-title">
+      <h2 id="six-title">六件大事</h2>
+      <p>這六件是一起做的，不是做完一件才做下一件。治理比較像事先約好的規矩。</p>
+      <div class="card-stack" id="pick">
         {
-          functions.map((fn) => (
-            <article class="fn-card" data-fn={fn.id}>
-              <a class="fn-card-head" href={elementHref(fn)}>
-                <p class="en">{fn.id} · {fn.name?.toUpperCase()}</p>
+          functions.map((fn) => {
+            const guide = functionGuide(fn.id);
+            return (
+              <a class="plain-card" href={elementHref(fn)} data-fn={fn.id}>
                 <h3>{fn.navLabelZhTW}</h3>
-                <p class="count">
-                  {childrenOf(fn.id).length} 個類別 · {subcategoryCount(fn.id)} 項子類別
-                </p>
+                <p>{guide.line}</p>
+                <p class="analogy">比方：{guide.analogy}</p>
               </a>
-              <ul>
-                {childrenOf(fn.id).map((cat) => (
-                  <li>
-                    <a href={elementHref(cat)}>
-                      <span class="cid">{cat.id}</span>
-                      <span>{cat.navLabelZhTW}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))
+            );
+          })
         }
       </div>
+      <p class="fine">比方是用來想像的，不是 NIST 要你照做的規定。</p>
     </section>
-
-    <section aria-labelledby="changes-title">
-      <div class="section-head">
-        <h2 id="changes-title">和 CSF 1.1 相比</h2>
-        <p class="source-line">
-          以下整理自 NIST CSF 常見問答對 Core 主要變更的說明，以及 CSWP 29 前言。不是本站另外發明的框架內容。
-          <a href={csf.urls.faq}>看 NIST 原文</a>
-        </p>
-      </div>
-      <div class="change-grid">
-        <article class="panel">
-          <h3>新增治理，並把供應鏈抬上來</h3>
-          <p>
-            2.0 新增 Govern。NIST 說明，過去治理活動嵌在識別裡，單列出來是為了讓治理支撐整個資安計畫，並與企業風險管理、法令義務對齊，也與 AI、隱私框架的治理功能一致。
-          </p>
-          <p>
-            CSWP 29 前言指出，2.0 強調治理與供應鏈。常見問答對應的調整是：原 ID.SC 移到 GV.SC；ID.BE 現為 GV.OC；ID.RM 現為 GV.RM；ID.GV 也移入治理。
-          </p>
-        </article>
-        <article class="panel">
-          <h3>既有五項功能怎麼動</h3>
-          <ul>
-            <li>識別：新增改善（ID.IM）。1.1 的多個治理相關類別移到 Govern。</li>
-            <li>保護：PR.AC 改為 PR.AA，並重新編排。新增平台安全（PR.PS）與技術基礎設施韌性（PR.IR）。PR.IP、PR.PT 拆開，PR.MA 主要併入 ID.AM-08。</li>
-            <li>偵測：DE.DP 拆到治理、識別與偵測。</li>
-            <li>應變：RS.RP 併入範圍更廣的 RS.MA。RS.IM 移到 ID.IM。</li>
-            <li>復原：RC.RP 大幅擴充。RC.IM 移到 ID.IM。</li>
-          </ul>
-        </article>
-      </div>
-      <article class="panel panel-space">
-        <h3>編號有空缺，內容沒有被拿掉</h3>
-        <p>
-          附錄 A 寫明：子類別編號故意不連續，空號表示 1.1 的子類別在 2.0 已移到別處。例如沒有 ID.AM-06。常見問答補充：從 1.1 到 2.0 沒有把內容刪除，1.1 的意思都收在 2.0 裡；識別碼一旦移走就不再重用，例如 1.1 的 PR.DS-3 移到 ID.AM-08。
-        </p>
-        <p>2.0 之前的正式名稱是 Framework for Improving Critical Infrastructure Cybersecurity。CSWP 29 說明這個名稱不再用於 2.0。</p>
-      </article>
-    </section>
-
-    <section aria-labelledby="read-title">
-      <div class="section-head">
-        <h2 id="read-title">這張地圖怎麼讀</h2>
-      </div>
-      <div class="read-grid">
-        <article class="panel">
-          <h3>三層成果</h3>
-          <ul>
-            <li>功能是最上面一層，共六項。</li>
-            <li>類別是構成功能的一組相關成果。</li>
-            <li>子類別是更具體的技術與管理成果。CSF 寫的是要達成什麼，不規定用哪一個控制措施。</li>
-          </ul>
-        </article>
-        <article class="panel">
-          <h3>畫面上的兩種文字</h3>
-          <p>標成「官方英文成果敘述」的句子來自附錄 A。標成「非官方說明」的繁體中文是本站為臺灣資安實務寫的白話，不是 NIST 譯文。</p>
-          <p>官方繁體中文譯本、英文 PDF、CSF 網站與 CPRT 都在頁尾。</p>
-        </article>
-      </div>
-    </section>
-  </div>
+  </article>
 </Base>
