@@ -1,0 +1,32 @@
+---
+import { elementHref, getElement } from "../lib/catalog";
+
+const steps = [
+  { id: "ID", text: "先知道哪些檔案和備份最重要" },
+  { id: "PR", text: "門先鎖好，備份跟電腦分開" },
+  { id: "DE", text: "檔案被大量改名時，立刻知道" },
+  { id: "RS", text: "先把中招的電腦隔離" },
+  { id: "RC", text: "用乾淨的備份把工作救回來" },
+];
+---
+
+<figure class="flow" aria-label="舉例：一封假發票引發勒索軟體時，六件事怎麼接在一起。這不是 NIST 規定的做法。">
+  <figcaption>
+    <strong>CSF 怎麼運作</strong>
+    <span>舉例。不是 NIST 規定的做法。</span>
+  </figcaption>
+  <div class="flow-band" data-fn="GV">
+    <a href={elementHref(getElement("GV"))}>治理</a>
+    <span>從頭到尾都有人負責，也有底線</span>
+  </div>
+  <ol>
+    {
+      steps.map((step) => (
+        <li data-fn={step.id}>
+          <a href={elementHref(getElement(step.id))}>{getElement(step.id).navLabelZhTW}</a>
+          <span>{step.text}</span>
+        </li>
+      ))
+    }
+  </ol>
+</figure>

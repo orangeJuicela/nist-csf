@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import Pager from "../../components/Pager.astro";
 import { functions, childrenOf, elementHref, slug, href, type CatalogElement } from "../../lib/catalog";
+import FunctionSketch from "../../components/FunctionSketch.astro";
 import { functionGuide, categoryGuide, story } from "../../content/guide";
 
 export function getStaticPaths() {
@@ -31,6 +32,7 @@ const crumbs = [
       <h1>{fn.navLabelZhTW}</h1>
       <p class="lead">{guide.line}</p>
       <p class="analogy">比方：{guide.analogy}</p>
+      <FunctionSketch id={fn.id} />
     </header>
 
     <section>
